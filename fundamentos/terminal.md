@@ -2,7 +2,7 @@
 
 - [Curso de introducción a la terminal y linea de comandos](#curso-de-introducción-a-la-terminal-y-linea-de-comandos)
   - [Que es y para que sirve la terminal](#que-es-y-para-que-sirve-la-terminal)
-  - [Comandos básicos](#comandos-básicos)
+  - [Comandos y conceptos básicos](#comandos-y-conceptos-básicos)
   - [Sistema de archivos](#sistema-de-archivos)
     - [Estructura del sistema de archivos](#estructura-del-sistema-de-archivos)
     - [Punteros dentro del sistema de archivos](#punteros-dentro-del-sistema-de-archivos)
@@ -13,7 +13,6 @@
     - [Empaquetar y comprimir](#empaquetar-y-comprimir)
   - [Manejo de texto en la terminal](#manejo-de-texto-en-la-terminal)
   - [Procesos](#procesos)
-  - [Variables de entorno](#variables-de-entorno)
   - [Operaciones remotas](#operaciones-remotas)
   - [Automatización y scripts](#automatización-y-scripts)
 
@@ -27,7 +26,7 @@ Utilizar la terminal nos permite realizar operaciones de manera mas eficiente qu
 por medio de una interfaz gráfica y a su vez nos permite automatizar tareas
 largas y complejas.
 
-## Comandos básicos
+## Comandos y conceptos básicos
 
 Dentro de la terminal existen varios comandos que nos permiten interactuar con la
 computadora y realizar tareas simples, estos comandos son:
@@ -61,6 +60,23 @@ ejecutamos en el pasado, de esta manera:
 ```bash
 !4325
 git status # Esto es equivalente
+```
+
+Las variables de entorno son valores que puede ser accedidos por cualquier tipo
+de procesos, y estas se definen asi:
+
+```bash
+export VAR=[VALUE] # define una variable llamada VAR
+echo $VAR # Para acceder al valor de una variable utilizamos el símbolo '$'
+```
+
+Sin embargo estas variables no son permanentes, para que las mismas sean
+permanentes, tenemos que definirías en uno de estos archivos:
+
+```text
+/etc/environment
+.zshrc
+.bashrc
 ```
 
 ## Sistema de archivos
@@ -154,10 +170,6 @@ ls -h # Muestra los archivos con sus tamaños en KB, MB, etc.
 ...
 
 ## Procesos
-
-...
-
-## Variables de entorno
 
 ...
 
