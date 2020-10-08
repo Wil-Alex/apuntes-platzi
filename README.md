@@ -6,9 +6,9 @@ Repositorio de apuntes tomados de los cursos de Platzi
 
 - [ ] Fundamentos
   - [ ] Curso de Pensamiento Lógico
-  - [x] Curso de Introducción a la Terminal y Linea de Comandos
-  - [ ] Curso Profesional de Git y GitHub
-  - [x] Curso de Expresiones Regulares
+  - [x] [Curso de Introducción a la Terminal y Linea de Comandos](/fundamentos/terminal.md)
+  - [ ] [Curso Profesional de Git y GitHub](fundamentos/git-github.md)
+  - [x] [Curso de Expresiones Regulares](fundamentos/expresiones-regulares.md)
   - [ ] Curso Básico de Algoritmos
   - [ ] Fundamentos de Bases de Datos
   - [ ] Curso de Administración de Servidores Linux
