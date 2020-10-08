@@ -6,15 +6,14 @@
     - [Comandos básicos](#comandos-básicos)
     - [Configurar git](#configurar-git)
     - [Operaciones entre working, stage y repository](#operaciones-entre-working-stage-y-repository)
-      - [Modificar el working directory](#modificar-el-working-directory)
-      - [Staging area](#staging-area)
-      - [Repository](#repository)
+    - [Diferencias entre rm y reset](#diferencias-entre-rm-y-reset)
     - [Analizar archivos y cambios en git](#analizar-archivos-y-cambios-en-git)
     - [Desplazarse entre versiones del proyecto o de un archivo](#desplazarse-entre-versiones-del-proyecto-o-de-un-archivo)
   - [Las ramas](#las-ramas)
+    - [Que son las ramas](#que-son-las-ramas)
+    - [Crear una rama](#crear-una-rama)
+    - [Fusionar una rama](#fusionar-una-rama)
   - [Repositorios remotos](#repositorios-remotos)
-  - [Notas](#notas)
-    - [Diferencias entre rm y reset](#diferencias-entre-rm-y-reset)
 
 ## Conceptos básicos
 
@@ -66,67 +65,41 @@ git config --global user.email [TU CORREO] # Recomendable que sea el mismo que t
 
 ### Operaciones entre working, stage y repository
 
-#### Modificar el working directory
-
 Para modificar el 'working directory' simplemente realizamos las operaciones
 habituales sobre los archivos, es decir copiar, mover, eliminar y editar archivos.
 
-#### Staging area
-
-Añadir un archivo al stage:
+Para realizar operaciones sobre el Staging Area tenemos los comandos:
 
 ```bash
-git add [ARCHIVO]
-```
+git add [ARCHIVO] # Añadir un archivo al stage
+git rm --cached [ARCHIVO] # Sacar un archivo de stage sin borrar el working directory
+git reset [ARCHIVO] HEAD # Sacar un archivo del stage sin marcar ninguna operación de borrado
 
-Sacar un archivo de stage sin borrar los cambios del disco duro:
-
-```bash
+git rm --force [ARCHIVO] # Eliminar un archivo de staging y del disco duro
 git rm --cached [ARCHIVO]
+rm [ARCHIVO] # Equivalente a git rm --force
 ```
 
-Sacar un archivo del stage sin marcar ninguna operación de borrado:
+Una vez tenemos nuestro staging area listo podemos realizar operaciones al
+repositorio con los comandos: 
 
-```
-git reset [ARCHIVO] HEAD
-```
-
-Eliminar un archivo de staging y del disco duro:
+:
 
 ```bash
-git rm --force [ARCHIVO]
+git commit -m [MENSAJE] # Para enviar stage al repositorio
+git reset --soft # Regresar a un commit anterior pero mantener el stage
 
-git rm --cached [ARCHIVO]
-rm [ARCHIVO] # Ambas operaciones son equivalentes
-```
-
-#### Repository
-
-Para enviar stage al repositorio:
-
-```bash
-git commit -m [MENSAJE]
-```
-
-Regresar a un commit anterior pero mantener el stage:
-
-```bash
-git reset --soft
-```
-
-Regresar a un commit anterior, limpiar el stage, pero mantener los cambios en el
-disco duro:
-
-```bash
-git reset --mixed # Esta es la opción por defecto
+git reset --mixed # Regresar a un commit anterior, limpiar el stage, pero mantener el working directory
 git reset # Ambas son equivalentes
+
+git reset --hard # Regresar a un commit anterior, limpiar el stage, y borrar el working directory
 ```
 
-Regresar a un commit anterior, limpiar el stage, y eliminar los cambios del disco:
+### Diferencias entre rm y reset
 
-```bash
-git reset --hard
-```
+La operación 'reset' simplemente deshace los cambios en los lugares que
+corresponda según las opciones que se le pasen, a diferencia de 'rm' que registra
+la operación de borrado en la base de datos.
 
 ### Analizar archivos y cambios en git
 
@@ -163,9 +136,13 @@ git checkout [COMMIT] # Este comando trae todo el proyecto a una versión anteri
 
 ## Las ramas
 
+### Que son las ramas
+
 Las ramas de git son historiales de commit de un repositorio, pueden existir
 ramas paralelas es decir historias de archivos que evolucionen de manera
 independiente y posteriormente realizar fusiones entre ellas.
+
+### Crear una rama
 
 Cuando creamos una rama creamos una copia del commit y sobre esa copia realizamos
 cambios de manera independiente al original, para crear una rama debemos
@@ -176,6 +153,38 @@ y ejecutamos el comando:
 git branch [NOMBRE DE LA RAMA] # Crea la rama
 git checkout [NOMBRE DE LA RAMA] # Mueve HEAD a la nueva rama
 ```
+
+Cuando nos movemos entre ramas lo que sucede es que HEAD apunta a un commit que
+se encuentra en otra rama, por defecto se mueve al commit mas reciente que exista.
+
+Es importante notar que el comando 'checkout' mueve el apuntador HEAD y por lo
+tanto el directorio de trabajo a otro commit, debido a esto si realizamos un
+checkout y tenemos cambios que no han sido registrados, perderemos estos cambios,
+debido a esto checkout nos informara cuando sea ese el caso y nos pedirá que
+enviemos un commit con los cambios al repositorio.
+
+Para ver las ramas que existen dentro del proyecto usamos:
+
+```bash
+git branch
+```
+
+### Fusionar una rama
+
+Si tenemos 2 ramas, podemos hacer que los archivos sean modificados de manera
+independiente en cada una de ellas, sin embargo normalmente las ramas se utilizan
+con el fin de fusionar los cambios en un futuro, para realizar esta operación
+debo colocarme en la rama que recibirá los cambios y luego realizar la fusión,
+esto se hace de la siguiente manera:
+
+```bash
+git checkout master # Esto me mueve a la rama master para que master reciba los cambios
+git merge [OTRA RAMA] # Trae los cambios de la otra rama
+```
+
+Cuando realizamos la fusión se crea un commit nuevo en la rama que recibe los
+cambios, en ese caso 'master' y luego en ese commit combina los cambios de la
+otra rama con la rama actual.
 
 ## Repositorios remotos
 
@@ -207,11 +216,3 @@ git merge # Trae los datos del repositorio local al directorio de trabajo
 
 git pull # Esto ejecuta fetch y pull en la misma operación
 ```
-
-## Notas
-
-### Diferencias entre rm y reset
-
-La operación 'reset' simplemente deshace los cambios en los lugares que
-corresponda según las opciones que se le pasen, a diferencia de 'rm' que registra
-la operación de borrado en la base de datos.
