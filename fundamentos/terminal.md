@@ -233,7 +233,7 @@ gzip [ARCHIVO] # Comprimir un archivo
 gzip -d [ARCHIVO] # Descomprimir un archivo
 ```
 
-La herramienta gzip unicamente puede comprimir un archivo, por lo que no nos es
+La herramienta 'gzip' unicamente puede comprimir un archivo, por lo que no nos es
 util para comprimir directorios, para hacer esto tenemos que empaquetar los
 directorios en un archivo y para eso usamos la herramienta 'tar', de esta forma:
 
@@ -243,8 +243,8 @@ tar cf [DIRECTORIO] # Empaquetar un directorio
 tar xf [ARCHIVO TAR] # Extrae los archivos de un archivo tar
 ```
 
-La herramienta tar solo empaqueta los archivos en uno solo, sin embargo podemos
-combinarla con gzip para comprimir el archivo tar de esta forma:
+La herramienta 'tar' solo empaqueta los archivos en uno solo, sin embargo podemos
+combinarla con 'gzip' para comprimir el archivo 'tar' de esta forma:
 
 ```bash
 tar czf [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Comprimir varios archivos
@@ -282,7 +282,7 @@ terminal, de esta manera:
 
 ```bash
 echo "Hola soy una linea de texto" > archivo.txt # Desvía el resultado a un archivo de texto, si ya existe lo sobre-escribe
-echo "Hola soy una linea de texto sobre otra" >> archivo.txt # Igual que el anterior, peri si existe lo agrega al final
+echo "Hola soy una linea de texto sobre otra" >> archivo.txt # Igual que el anterior, pero si existe lo agrega al final
 echo < archivo.txt # Envía como entrada al comando el texto del archivo
 ```
 
