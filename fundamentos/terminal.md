@@ -157,7 +157,6 @@ ls -h # Muestra los archivos con sus tamaños en KB, MB, etc.
 
 ...
 
-
 ## Variables de entorno
 
 ...
