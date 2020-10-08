@@ -81,9 +81,7 @@ rm [ARCHIVO] # Equivalente a git rm --force
 ```
 
 Una vez tenemos nuestro staging area listo podemos realizar operaciones al
-repositorio con los comandos: 
-
-:
+repositorio con los comandos:
 
 ```bash
 git commit -m [MENSAJE] # Para enviar stage al repositorio
