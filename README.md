@@ -21,7 +21,7 @@ Repositorio de apuntes tomados de los cursos de Platzi
   - [ ] Curso de Introducción al Pensamiento Probabilístico
   - [ ] Curso de Introducción a los Algoritmos de Ordenamiento
 - [ ] Frontend con HTML y CSS
-  - [ ] Curso Definitivo de HTML y CSS
+  - [ ] [Curso Definitivo de HTML y CSS](frontend-html-css/html-css-2020.md)
   - [ ] Curso de HTML y CSS
   - [ ] Curso Practico de HTML y CSS
   - [ ] Curso de Responsive Design: Maquetación Mobile First
