@@ -1,7 +1,7 @@
 # Curso de expresiones regulares
 
 - [Curso de expresiones regulares](#curso-de-expresiones-regulares)
-  - [¿Para que sirven las expresiones regulares](#para-que-sirven-las-expresiones-regulares)
+  - [Para que sirven las expresiones regulares](#para-que-sirven-las-expresiones-regulares)
   - [Conceptos](#conceptos)
     - [Acerca de las coincidencias](#acerca-de-las-coincidencias)
     - [Caracteres reservados](#caracteres-reservados)
@@ -17,7 +17,7 @@
   - [Casos especiales](#casos-especiales)
     - [El caso de '?' como delimitador](#el-caso-de--como-delimitador)
 
-## ¿Para que sirven las expresiones regulares
+## Para que sirven las expresiones regulares
 
 Las expresiones regulares sirven para analizar, procesar, organizar, validar y
 descomponer grandes cantidades de datos que estén en formato texto.
