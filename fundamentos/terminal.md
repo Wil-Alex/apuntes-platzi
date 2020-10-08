@@ -16,7 +16,11 @@
     - [Flujos estándar](#flujos-estándar)
   - [Procesos](#procesos)
   - [Operaciones remotas](#operaciones-remotas)
+    - [Curl y wget](#curl-y-wget)
+    - [SSH](#ssh)
   - [Automatización y scripts](#automatización-y-scripts)
+    - [Bash](#bash)
+    - [Tareas programadas](#tareas-programadas)
 
 ## Que es y para que sirve la terminal
 
@@ -318,6 +322,76 @@ killall -9 [NOMBRE PROCESO] # Nos permiten finalizar forzosamente un proceso
 
 ## Operaciones remotas
 
+### Curl y wget
+
+En la terminal disponemos de varios comandos para poder realizar operaciones en
+internet, por ejemplo podemos realizar peticiones HTTP de esta manera:
+
+```bash
+curl [URL] # Devuelve el cuerpo del documento
+curl -v [URL] # Devuelve el cuerpo mas los encabezados del documento
+curl -v [URL] > /dev/null # Devuelve solamente los encabezados del documento
+```
+
+También podemos descargar archivos binarios a través de la red con el comando:
+
+```bash
+wget [URL] # Descargar archivo desde esa url
+```
+
+### SSH
+
+También podemos conectarnos a dispositivos remotos a través de la terminal con
+la herramienta 'ssh' (Secure Shell), para ello antes debemos generar un par de
+claves que nos servirán para hacer la conexión, para esto ejecutamos:
+
+```bash
+ssh-keygen -t rsa -b 4096 -c [EMAIL] # Crea un par de llaves
+ssh-add ~/.ssh/id_rsa # Añade las llaves al cliente ssh
+
+ssh -i [PRIVATE KEY] [USUARIO]@[HOST] # Conecta al servidor remoto
+```
+
 ## Automatización y scripts
 
-...
+### Bash
+
+La terminal utiliza un programa llamado Bash que también funciona como un
+lenguaje de programación desde el cual podemos crear nuestros propios scripts,
+un ejemplo de script de Bash puede ser:
+
+```bash
+#! /bin/bash
+
+echo "Hola mundo" > archivo.txt
+echo < archivo.txt
+
+cat archivo.txt | grep -EP '.txt$'
+```
+
+### Tareas programadas
+
+Dentro de la terminal tenemos herramientas que nos permite indicarle al sistema
+que queremos programar tareas para que se ejecuten en un tiempo determinado ó
+en periodos establecidos.
+
+Si queremos establecer una tarea para que se ejecute dentro de un tiempo
+especifico, utilizamos la herramienta 'at' de esta manera:
+
+```bash
+[COMANDO] | at now +[n] [TIME UNIT] # Indica que una tarea se ejecuta en n TIME UNITS (ej. 2 minutes, 3 hours, etc.)
+```
+
+Si en cambio queremos definir que una tarea se ejecute en un periodo especifico
+de tiempo usamos la herramienta 'crontab' para editar un archivo con todas las
+tareas programadas, para hacer esto ejecutamos:
+
+```bash
+crontab -e
+```
+
+Esto abrirá un archivo de texto el cual debemos llenar de la siguiente manera:
+
+```text
+[minuto] [hora] [dia del mes] [mes] [dia de la semana] [COMANDO]
+```
