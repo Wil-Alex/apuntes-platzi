@@ -5,6 +5,7 @@
   - [Conceptos](#conceptos)
     - [Acerca de las coincidencias](#acerca-de-las-coincidencias)
     - [Caracteres reservados](#caracteres-reservados)
+    - [Variables y grupos](#variables-y-grupos)
   - [Elementos](#elementos)
     - [Las clases](#las-clases)
     - [Clases personalizadas](#clases-personalizadas)
@@ -34,6 +35,21 @@ lo que se dice que esa cadena es una cadena valida.
 Los caracteres reservados son caracteres que forman parte de la sintaxis de las
 expresiones regulares por lo tanto deben no pueden formar parte del texto que se
 esta analizando a menos que se escapen utilizando el carácter '\'
+
+### Variables y grupos
+
+En las expresiones regulares podemos crear agrupaciones las cuales podemos usar
+posteriormente en alguna función que acepte expresiones regulares, estas
+variables y agrupaciones se realizan de la siguiente manera:
+
+```regex
+^\[(\d{4})\]\s(\w+)$
+
+$1 // \d{4}, el primer grupo guarda 4 dígitos, por ejemplo un año
+$2 // \w+, el segundo grupo guarda alguna descripción
+```
+
+Las variables pueden ser accedidas con los símbolos '$1','$2','$3', ... ,'$9'.
 
 ## Elementos
 
@@ -151,7 +167,36 @@ encuentre entre el rango de números del 0 al 5.
 
 ### Inicio '^' y final '$' de linea
 
-...
+El carácter '^' marca el inicio de la linea por lo que se puede usar para indicar
+una clase que debe ir al principio de una linea de la siguiente manera:
+
+```regex
+^\d{4}
+```
+
+Esta expresión indica que la linea debe empezar por 4 dígitos.
+
+por otra parte el carácter '$' indica el final de linea por lo que se puede
+utilizar para expresar como debe ser el final de una linea.
+
+```regex
+[abcd]$
+```
+
+Esta expresión indica que la linea debe finalizar con uno de los caracteres 'a',
+'b', 'c' ó 'd'.
+
+Si usamos las 2 expresiones en combinación podemos indicar expresiones para
+evaluar lineas completas, esto se puede realizar colocando una expresión regular
+entre los símbolos de la siguiente manera, por ejemplo:
+
+```regex
+^\d+\w*[abcd]$
+```
+
+Esta expresión regular evaluá una cadena como valida si una linea empieza por al
+menos un dígito, ninguna ó una palabra y si finaliza con alguno de los caracteres
+'a', 'b', 'c' ó 'd'.
 
 ## Casos especiales
 
