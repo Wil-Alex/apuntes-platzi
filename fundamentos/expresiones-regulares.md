@@ -34,7 +34,7 @@ lo que se dice que esa cadena es una cadena valida.
 
 Los caracteres reservados son caracteres que forman parte de la sintaxis de las
 expresiones regulares por lo tanto deben no pueden formar parte del texto que se
-esta analizando a menos que se escapen utilizando el carácter '\'
+esta analizando a menos que se escapen utilizando el carácter '\\'
 
 ### Variables y grupos
 
