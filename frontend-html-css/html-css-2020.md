@@ -57,6 +57,12 @@ Los elementos html están compuesto de:
 - Contenido (opcional): Solo puede existir si existe etiqueta de cierre.
 - Etiqueta de cierre (opcional): No existe para algunas etiquetas.
 
+Ejemplo:
+
+```html
+<tag attr1="value1" attr2> [contenido] </tag>
+```
+
 ## Estructura de un sitio web
 
 ### Estructura básica
