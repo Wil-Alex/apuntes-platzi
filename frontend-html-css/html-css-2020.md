@@ -8,6 +8,7 @@
     - [Estructura basica](#estructura-basica)
     - [El head del sitio web](#el-head-del-sitio-web)
     - [El body del sitio web](#el-body-del-sitio-web)
+  - [Multimedia en HTML](#multimedia-en-html)
 
 ## Desarrolladores Web
 
@@ -68,7 +69,7 @@ estructura básica es:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Soy la descripción de este sitio web">
+  <meta name="description" content="desc">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -110,7 +111,7 @@ esta:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Soy la descripción de este sitio web">
+  <meta name="description" content="desc">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -170,3 +171,7 @@ Ejemplos de elementos de contenido:
   indica que el enlace se abrirá en otra pestaña y el atributo 'href="#"', hace
   referencia a la misma pagina e impide que se recargue al hacer click en el
   enlace.
+  
+## Multimedia en HTML
+
+...
