@@ -9,6 +9,8 @@
     - [El head del sitio web](#el-head-del-sitio-web)
     - [El body del sitio web](#el-body-del-sitio-web)
   - [Multimedia en HTML](#multimedia-en-html)
+    - [Imágenes](#imágenes)
+    - [Video](#video)
 
 ## Desarrolladores Web
 
@@ -174,4 +176,105 @@ Ejemplos de elementos de contenido:
   
 ## Multimedia en HTML
 
-...
+### Imágenes
+
+Dentro de nuestro sitio web podemos insertar imágenes, existen básicamente 2
+tipos de imágenes:
+
+- Lossless: Formato sin perdida, este tipo de imágenes normalmente son de alta
+  calidad y pueden estar comprimidos, sin embargo normalmente son muy pesadas.
+- Lossy: Formato con perdida, estas imágenes son mas ligeras y puede que tengan
+  una peor calidad ya que se eliminan ciertos datos para reducir su tamaño.
+
+Para el desarrollo web lo ideal es que las imágenes tengan un tamaño de **alrededor
+de 70KB.**
+
+|        | Categoría |       Paleta        |                   Uso                    |
+| :----: | :-------: | :-----------------: | :--------------------------------------: |
+| PNG-8  | Lossless  |     256 colores     | Animaciones, gráficas con colores planos |
+| PNG-16 | Lossless  |     256 colores     |     Transparencia, ideal para iconos     |
+| PNG-24 | Lossless  | Colores ilimitados  |     Similar a PNG-8 con mas colores      |
+|  JPEG  |   Lossy   | Millones de colores |          Imágenes y fotografiás          |
+|  SVG   | Lossless  | Colores ilimitados  |  Gráficos vectoriales, Alta resolución   |
+
+Podemos comprimir imágenes para utilizarlas en nuestro sitio web en:
+
+- [Tiny PNG](https://tinypng.com/)
+- [Verexif](https://www.verexif.com/)
+- [Squoosh](https://squoosh.app/)
+
+Y también podemos descargar imágenes, vectores e iconos para nuestro sitio web en:
+
+- [Flaticon](https://www.flaticon.com/)
+- [Freepik](https://www.freepik.es/)
+- [Unsplash](https://unsplash.com/)
+- [Pexels](https://www.pexels.com/es-es/)
+
+Para insertar imágenes dentro de nuestro web utilizaremos el elemento 'img' para
+indicar la ubicación de la imagen con el atributo 'href' y usaremos el elemento
+'figure' que sirve como contenedor para las imágenes, usaremos esto de esta
+manera:
+
+```html
+<figure>
+  <img src="./img/image1.png" alt="Descripción de la imagen">
+  <figcaption>Esta es la descripción de la imagen</figcaption>
+</figure>
+```
+
+Descripción:
+
+- **'figure'**: Este elemento contenedor contiene la imagen y nos sirve para
+  posicionar la imagen y re-dimensionar la imagen, se podría usar 'div' para esta
+  función pero es recomendable usar 'figure' para darle sentido semántico.
+- **'img'**: Este elemento permite insertar la imagen y utiliza los atributos
+  'href' para indicar la ubicación de la imagen y 'alt' para poner la descripción
+  de la imagen que se muestra en caso de que no se pueda cargar la imagen.
+- **'figcaption'**: Este elemento dentro de figure permite describir la imagén
+  contenida dentro del 'figure', para esto se podría usar un elemento 'p', pero
+  es recomendable usar siempre 'figcaption' para darle sentido semantico al sitio.
+
+### Video
+
+Dentro de nuestro sitio web podemos introducir videos, esto se hace de la
+siguiente manera:
+
+```html
+<!-- Forma 1 -->
+<video src="./video1.mp4" preload="auto" controls></video>
+
+<!-- Forma 2 -->
+<video preload="auto" controls>
+  <source src="./video1.mp4"> <!-- Opción 1 -->
+  <source src="./video1.mkv"> <!-- Opción 2 -->
+  <source src="./video1.webm"> <!-- Opción 3 -->
+</video>
+```
+
+Podemos observar que existen dos formas de insertar videos dentro de HTML, con la
+primera forma podemos insertar un video en un formato especifico, mientras que en
+la segunda forma podemos insertar un video en varios formatos distintos, esto es
+util para compatibilidad ya que el navegador podrá escoger el formato adecuado
+que sea capaz de reproducirlo, el orden de prioridad es de arriba hacia abajo.
+
+La etiqueta 'video' permite introducir un video al sitio web, utilizando el
+atributo 'src' para indicar la ubicación del archivo de video, 'preload="auto"',
+indica que el video se comenzara a descargar (no reproducir) automáticamente,
+y el atributo 'controls' activa los controles de reproducción.
+
+Si usamos la etiqueta 'source' dentro de una etiqueta video, podemos agregar
+varias ubicaciones de donde descargara el archivo.
+
+También podemos indicar que un video se reproduzca automáticamente al cargarse,
+sin embargo esto es considerado una mala practica, se hace de esta forma:
+
+```html
+<video src="./video1.mp4" autoplay>
+```
+
+Podemos indicar que queremos que un videos inicie y finalize su reproducción en
+minutos específicos, esto se hace de esta forma:
+
+```html
+<video src="./video1.mp4#t[min-inicio],[min-fin]">
+```
