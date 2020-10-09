@@ -11,6 +11,7 @@
   - [Multimedia en HTML](#multimedia-en-html)
     - [Imágenes](#imágenes)
     - [Video](#video)
+  - [Formularios](#formularios)
 
 ## Desarrolladores Web
 
@@ -283,4 +284,128 @@ minutos específicos, esto se hace de esta forma:
 
 ```html
 <video src="./video1.mp4#t[min-inicio],[min-fin]">
+```
+
+## Formularios
+
+Los formularios son la manera en la que interactuamos con el usuario.
+
+> "El mejor formulario es el que no existe."
+
+La manera correcta de crear formularios es utilizando la etiqueta 'form', aunque
+es posible crear formularios dentro de un 'div' lo ideas es utilizar 'form' para
+darle sentido semántico al sitio, las etiquetas 'input' siempre deben ir dentro
+de un contenedor.
+
+```html
+<form action="">
+    <label for="nombre">
+      <span>¿Cual es tu nombre?</span>
+      <input type="text" id="nombre" placeholder="Tu Nombre">
+    </label>
+    <label for="dia-inicio">
+      <span>¿Que dia empezaste?</span>
+      <input type="date" id="dia-inicio">
+    </label>
+    <label for="horario">
+      <span>¿Que horario prefieres?</span>
+      <input type="time" id="horario">
+    </label>
+  </form>
+```
+
+Descripción:
+
+- **'form'**: Este elemento es un contenedor para los elementos del formulario,
+  posee el atributo 'action', donde podemos indicar el endpoint o acción a
+  realizar con los datos que estamos capturando con el formulario.
+- **'label'**: Este elemento sirve para etiquetar un elemento 'input' con un
+  texto, es util para la accesibilidad del sitio, el atributo 'for' debe de ser
+  igual al atributo 'id' de su 'input' asociado.
+- **'span'**: Elemento para contener un texto, en este caso el texto con lo que
+  estamos preguntando al usuario.
+- **'input'**: Elemento del formulario con el que podemos interactuar, su
+  atributo 'type' indica que tipo de datos puede recibir, el atributo 'id' debe
+  coincidir con el 'for' de su 'label' asociado, esto identifica el elemento,
+  y el atributo 'placeholder' que muestra un texto atenuado en los formularios
+  que reciben texto.
+
+[Lista de 'types' disponible para 'input'](https://www.w3schools.com/html/html_form_input_types.asp)
+[Input - MDN](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input)
+
+Para poder enviar los datos de un formulario debemos usar el atributo 'name' para
+identificar dichos datos, ademas tenemos el 'input' de tipo 'submit' en cual nos
+permite enviar los datos.
+
+El 'input' de tipo 'submit' nos permite enviar nuestros datos, funciona como un
+botón, también tenemos el 'input' de tipo 'datetime-local' nos permite en el
+mismo formulario preguntar una fecha y una hora.
+
+Ejemplo:
+
+```html
+<form action="">
+    <label for="Calendario">
+      <span>Calendario</span>
+      <input type="datetime-local" name="Calendario" id="Calendario">
+    </label>
+  <input type="submit">
+</form>
+```
+
+HTML nos proporciona en los elementos 'input' herramientas de auto-completado,
+las cuales nos intentan dar sugerencias de posible datos que podemos llenar en
+esos campos, para activar esta función utilizamos el atributo 'autocomplete' al
+cual le pasamos un valor, el cual indica que tipo de dato debe intentar completar.
+
+[Valores para autocomplete](https://developer.mozilla.org/es/docs/Web/HTML/Atributos/autocomplete)
+
+Si necesitamos que un dato sea obligatorio de llenar podemos añadir el atributo
+'required' el cual le indica al navegador que ese campo es obligatorio e informa
+un error en caso de que el campo no este rellenado.
+
+```html
+<form action="">
+  <label for="nombre">
+    <span>¿Cual es tu nombre?</span>
+    <input
+      type="text"
+      name="nombre"
+      id="nombre"
+      autocomplete="name"
+      required
+    />
+  </label>
+  <label for="correo">
+    <span>¿Cual es tu email?</span>
+    <input
+      type="email"
+      name="correo"
+      id="correo"
+      autocomplete="email"
+      required
+    />
+  </label>
+  <label for="pais">
+    <span>¿Cual es tu pais?</span>
+    <input
+      type="text"
+      name="pais"
+      id="pais"
+      autocomplete="country"
+      required
+    />
+  </label>
+  <label for="cp">
+    <span>¿Cual es tu codigo postal?</span>
+    <input
+      type="text"
+      name="cp"
+      id="cp"
+      autocomplete="postal-code"
+      required
+    />
+  </label>
+  <input type="submit" />
+</form>
 ```
