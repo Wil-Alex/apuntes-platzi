@@ -203,6 +203,14 @@ usuarios, por ejemplo:
 chmod 644 [ARCHIVO] # Le asigna permisos de lectura y escritura al propietario y solo lectura a los demás
 ```
 
+Esta instrucción asigna los permisos de esta manera:
+
+|               | Propietario | Grupo | Otros |
+| :-----------: | :---------: | :---: | :---: |
+|  Lectura (4)  |      x      |   x   |   x   |
+| Escritura (2) |      x      |       |       |
+| Ejecución (1) |             |       |       |
+
 ## Buscar
 
 Dentro de la terminal tenemos herramientas para realizar búsquedas de archivos
