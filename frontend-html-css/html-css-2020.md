@@ -201,7 +201,7 @@ de 70KB.**
 | PNG-8  | Lossless  |     256 colores     | Animaciones, gráficas con colores planos |
 | PNG-16 | Lossless  |     256 colores     |     Transparencia, ideal para iconos     |
 | PNG-24 | Lossless  | Colores ilimitados  |     Similar a PNG-8 con mas colores      |
-|  JPEG  |   Lossy   | Millones de colores |          Imágenes y fotografiás          |
+|  JPEG  |   Lossy   | Millones de colores |          Imágenes y fotografías          |
 |  SVG   | Lossless  | Colores ilimitados  |  Gráficos vectoriales, Alta resolución   |
 
 Podemos comprimir imágenes para utilizarlas en nuestro sitio web en:
@@ -331,6 +331,7 @@ Descripción:
   que reciben texto.
 
 [Lista de 'types' disponible para 'input'](https://www.w3schools.com/html/html_form_input_types.asp)
+
 [Input - MDN](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input)
 
 Para poder enviar los datos de un formulario debemos usar el atributo 'name' para
