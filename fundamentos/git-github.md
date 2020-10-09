@@ -184,6 +184,33 @@ Cuando realizamos la fusión se crea un commit nuevo en la rama que recibe los
 cambios, en ese caso 'master' y luego en ese commit combina los cambios de la
 otra rama con la rama actual.
 
+Durante la fusión puede darse el caso que una misma linea en un archivo haya sido
+modificada en las 2 ramas, esto se llama un conflicto, cuando tengamos un
+conflicto, 'git merge' nos informara de la siguiente manera:
+
+```text
+Auto-fusionando [ARCHIVO]
+CONFLICTO (contenido): Conflicto de fusión en [ARCHIVO]
+Fusión automática falló; arregle los conflictos y luego realice un commit con el resultado.
+```
+
+Si abrimos el archivo veremos algo como esto:
+
+```text
+<<<<<< HEAD
+hola mundo, soy una buena linea
+======
+hola mundo, soy la primera linea
+>>>>>> test_1
+```
+
+La linea que esta después de HEAD y antes de los símbolos '=' corresponde al
+estado del archivo de la rama que recibe el merge, y la linea que esta después de
+los símbolos '=' corresponde al estado del archivo en la rama de la que estamos
+recibiendo el merge. Para resolver el conflicto simplemente borramos las lineas
+que no queramos en el archivo, incluyendo los símbolos del conflicto y enviamos
+un commit con los conflictos resueltos.
+
 ## Repositorios remotos
 
 Un repositorio remoto permite que varias personas trabajen en un mismo proyecto
@@ -194,7 +221,8 @@ Para empezar a utilizar los repositorios remotos tenemos varias opciones, por
 ejemplo para empezar a trabajar con un repositorio ya existente utilizamos:
 
 ```bash
-git clone [URL]
+git clone [URL] # Descarga un repositorio de internet y lo enlaza
+git remote add origin [URL] # Hace que nuestro repositorio local apunte a una nueva dirección remota
 ```
 
 Una vez que tenemos nuestra copia local del repositorio podemos trabajar sobre
@@ -213,4 +241,32 @@ git fetch # Trae los datos del repositorio remoto al repositorio local
 git merge # Trae los datos del repositorio local al directorio de trabajo
 
 git pull # Esto ejecuta fetch y pull en la misma operación
+```
+
+Es una buena practica antes de enviar cualquier cambio con 'push' al repositorio
+remoto, traer cualquier cambio que pudo haber ocurrido con 'pull'.
+
+Si queremos ver las URL a las que apunta los push y fetch de nuestro repositorio
+local podemos utilizar el comando:
+
+```bash
+git remote -v
+```
+
+Podemos modificar la URL a la que un repositorio apunta con el comando:
+
+```bash
+git remote set-url origin [URL]
+```
+
+Dentro de los repositorios remotos podemos marcar ciertos commit con una etiqueta,
+por ejemplo para identificar versiones, para hacer esto usamos el comando:
+
+```bash
+git tag -a [NOMBRE TAG] -m [DESC. TAG] [COMMIT] # Crea un tag nuevo en COMMIT
+git show-ref --tags # Muestra todos los tags
+git push origin --tags # Envía los tags al repositorio remoto
+
+git tag -d [NOMBRE TAG] # Elimina el tag
+git push origin :refs/tags/[NOMBRE TAG] # Elimina la referencia a ese tag en el repositorio remoto
 ```
