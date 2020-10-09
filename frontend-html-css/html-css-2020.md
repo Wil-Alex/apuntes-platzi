@@ -5,7 +5,7 @@
   - [Tipos de paginas Web](#tipos-de-paginas-web)
   - [Composición de un elemento HTML](#composición-de-un-elemento-html)
   - [Estructura de un sitio web](#estructura-de-un-sitio-web)
-    - [Estructura basica](#estructura-basica)
+    - [Estructura básica](#estructura-básica)
     - [El head del sitio web](#el-head-del-sitio-web)
     - [El body del sitio web](#el-body-del-sitio-web)
   - [Multimedia en HTML](#multimedia-en-html)
@@ -57,7 +57,7 @@ Los elementos html están compuesto de:
 
 ## Estructura de un sitio web
 
-### Estructura basica
+### Estructura básica
 
 Los sitios web deben tener una estructura que debe diseñarse utilizando el HTML
 semántico y normalmente todos los sitios comparten la estructura básica, esta
