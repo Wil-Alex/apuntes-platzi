@@ -34,6 +34,17 @@ anteriores de nuestro proyecto.
 El apuntador HEAD marca el estado de los archivos en disco actualmente, es decir
 apunta al commit en el que nos encontramos actualmente.
 
+Si queremos que git no rastree algún tipo de archivo podemos indicarlo en un
+archivo llamado '.gitignore', por ejemplo:
+
+```gitignore
+.env
+.venv
+env/
+venv/
+ENV/
+```
+
 ## Comandos
 
 ### Comandos básicos
@@ -164,7 +175,8 @@ enviemos un commit con los cambios al repositorio.
 Para ver las ramas que existen dentro del proyecto usamos:
 
 ```bash
-git branch
+git branch # Muestra las ramas que existen
+git show-branch --all # Muestra las ramas que existen y cual a sido su historial
 ```
 
 ### Fusionar una rama
@@ -230,7 +242,8 @@ el, enviar commit, y sincronizar nuestros cambios con la base de datos en remoto
 esto se hace de la siguiente manera:
 
 ```bash
-git push
+git push # Por defecto git push origin master
+git push origin [rama] # Envía a una rama remota distinta de master
 ```
 
 También podemos traer cambios del repositorio remoto al repositorio local, esto
@@ -241,6 +254,8 @@ git fetch # Trae los datos del repositorio remoto al repositorio local
 git merge # Trae los datos del repositorio local al directorio de trabajo
 
 git pull # Esto ejecuta fetch y pull en la misma operación
+git pull origin [rama] # Trae los datos de una rama remota especifica
+git pull origin master --allow-unrelated-histories # Permite traer un historial no relacionados a mi repositorio local
 ```
 
 Es una buena practica antes de enviar cualquier cambio con 'push' al repositorio
