@@ -9,10 +9,14 @@
     - [Diferencias entre rm y reset](#diferencias-entre-rm-y-reset)
     - [Analizar archivos y cambios en git](#analizar-archivos-y-cambios-en-git)
     - [Desplazarse entre versiones del proyecto o de un archivo](#desplazarse-entre-versiones-del-proyecto-o-de-un-archivo)
+    - [Guardar cambios temporalmente con git stash](#guardar-cambios-temporalmente-con-git-stash)
+    - [Traer commit específicos con cherry-pick](#traer-commit-específicos-con-cherry-pick)
+    - [Buscar en los commit y archivo con git grep y git blame](#buscar-en-los-commit-y-archivo-con-git-grep-y-git-blame)
   - [Las ramas](#las-ramas)
     - [Que son las ramas](#que-son-las-ramas)
     - [Crear una rama](#crear-una-rama)
     - [Fusionar una rama](#fusionar-una-rama)
+    - [Reorganizando el trabajo con git rebase](#reorganizando-el-trabajo-con-git-rebase)
   - [Repositorios remotos](#repositorios-remotos)
 
 ## Conceptos básicos
@@ -67,6 +71,14 @@ Para mover o renombrar archivos es recomendable usar:
 git mv [ANTIGUO] [NUEVO] # Esto registra la operación para evitar conflictos
 ```
 
+Limpiar directorio del proyecto de archivos no deseados
+
+```bash
+git clean --dry-run # Muestra los archivos que serán borrados pero no ejecuta el borrado
+git clean -f # Borra los archivos
+git clean -df # Borra los archivos incluyendo los directorios
+```
+
 ### Configurar git
 
 ```bash
@@ -96,12 +108,24 @@ repositorio con los comandos:
 
 ```bash
 git commit -m [MENSAJE] # Para enviar stage al repositorio
+git commit -am [MENSAJE] # Realiza un add y un commit en la misma instrucción
+
 git reset --soft # Regresar a un commit anterior pero mantener el stage
 
 git reset --mixed # Regresar a un commit anterior, limpiar el stage, pero mantener el working directory
 git reset # Ambas son equivalentes
 
 git reset --hard # Regresar a un commit anterior, limpiar el stage, y borrar el working directory
+```
+
+Si queremos reconstruir un commit que ya fue registrado podemos usar 'amend', sin
+embargo esto no debe usarse para commit que ya están en remoto, unicamente para
+realizar correcciones en local, para hacer un 'amend' hacemos:
+
+```bash
+git add . # Añadimos los cambios que queremos agregar
+git commit --amend # Aplicamos los cambios al ultimo commit enviado
+git commit --amend --no-edit # Aplicamos los cambios al ultimo commit pero no cambia el mensaje del commit
 ```
 
 ### Diferencias entre rm y reset
@@ -143,6 +167,52 @@ git checkout [COMMIT] [ARCHIVO] # Este comando permite traer un archivo de una v
 git checkout [COMMIT] # Este comando trae todo el proyecto a una versión anterior, mueve el apuntador HEAD
 ```
 
+### Guardar cambios temporalmente con git stash
+
+Cuando tenemos cambios que aun no están registrados en un commit y deseamos
+movernos a otra rama o a otro commit, git nos devolverá un error, esto es porque
+cuando cambiamos a otra rama o commit, movemos nuestro HEAD y por lo tanto
+nuestro directorio de trabajo, por lo que perderíamos nuestros cambios, para
+solucionar esto podemos guardar nuestros cambios de manera temporal con una
+herramienta de git llamada 'stash', de esta forma:
+
+```bash
+git stash # Guarda de manera temporal los cambios que tengo y regresa el directorio al ultimo commit
+git stash pop # Aplica los cambios del ultimo stash que estaban almacenados y lo borra de los stash
+git stash list # Nos permite ver los stash creados
+git stash branch [NOMBRE RAMA] # Crea una rama a partir del ultimo stash creado
+git stash drop # Elimina el ultimo stash sin aplicarlo
+git stash clear # Borra todos los stash
+```
+
+### Traer commit específicos con cherry-pick
+
+Con git podemos traer commit específicos de otras ramas o commit antiguos de la
+misma rama a el final de la rama actual, esto se hace con la herramienta
+'cherry-pick', sin embargo esto es una mala practica dado que esto re-escribe la
+historia del proyecto, por lo que es mejor utilizar 'checkout' o 'merge' para
+realizar estas operaciones, 'cherry-pick' se usa de esta manera:
+
+```bash
+git checkout [RAMA] # Nos ubicamos en la rama que recibirá el commit
+git cherry-pick [COMMIT] # Traemos el commit a la rama actual
+git commit # Solo en caso de que existan conflictos, resolverlos
+```
+
+### Buscar en los commit y archivo con git grep y git blame
+
+Si necesitamos buscar cuantas veces aparece una palabra, quien modifico una linea
+y en que archivo, utilizaremos los comandos:
+
+```bash
+git grep [regex] # Busca en que archivos aparecen lineas que coinciden con la expresión regular
+git grep -n [regex] # Muestra en que lineas coincide la expresión regular
+git grep -c [regex] # Muestra cuantas veces coincide una expresión regular
+
+git blame -c [ARCHIVO] # Muestra quien ha modificado cada linea de un archivo
+git blame -c [ARCHIVO] -L[inicio],[fin]# Muestra quien ha modificado cada linea de un archivo desde la linea inicio hasta fin
+```
+
 ## Las ramas
 
 ### Que son las ramas
@@ -161,6 +231,8 @@ y ejecutamos el comando:
 ```bash
 git branch [NOMBRE DE LA RAMA] # Crea la rama
 git checkout [NOMBRE DE LA RAMA] # Mueve HEAD a la nueva rama
+
+git branch -D [NOMBRE DE LA RAMA] # Elimina la rama
 ```
 
 Cuando nos movemos entre ramas lo que sucede es que HEAD apunta a un commit que
@@ -177,6 +249,8 @@ Para ver las ramas que existen dentro del proyecto usamos:
 ```bash
 git branch # Muestra las ramas que existen
 git show-branch --all # Muestra las ramas que existen y cual a sido su historial
+git branch -a # Muestra todas las ramas incluyendo las remotas
+git branch -r # Muestra solo las ramas remotas
 ```
 
 ### Fusionar una rama
@@ -222,6 +296,21 @@ los símbolos '=' corresponde al estado del archivo en la rama de la que estamos
 recibiendo el merge. Para resolver el conflicto simplemente borramos las lineas
 que no queramos en el archivo, incluyendo los símbolos del conflicto y enviamos
 un commit con los conflictos resueltos.
+
+### Reorganizando el trabajo con git rebase
+
+La función rebase de git re-organiza el orden de los commit entre las ramas, esta
+función mueve toda una rama al ultimo commit de otra, es decir cambia el punto de
+inicio de una rama en el historial, esto es una mala practica ya que se pierde la
+organización del registro de cambios y solo debe usarse de manera local, nunca en
+el repositorio remoto, se usa de la siguiente manera:
+
+```bash
+git checkout feature # Nos movemos a la rama que queremos mover
+git rebase master # Mueve el inicio de la rama feature al final de la rama master
+# Resolvemos conflictos
+git rebase feature # Actualiza el apuntador HEAD de master al nuevo final
+```
 
 ## Repositorios remotos
 
