@@ -336,7 +336,7 @@ Descripción:
   coincidir con el 'for' de su 'label' asociado, esto identifica el elemento,
   y el atributo 'placeholder' que muestra un texto atenuado en los formularios
   que reciben texto, el atributo 'name' sirve para identificar el elemento en el
-  servidor, 
+  servidor,
 
 [Lista de 'types' disponible para 'input'](https://www.w3schools.com/html/html_form_input_types.asp)
 
