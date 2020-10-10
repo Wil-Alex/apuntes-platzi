@@ -44,3 +44,8 @@ Repositorio de apuntes tomados de los cursos de Platzi
   - [ ] Curso Profesional de JavaScript
   - [ ] Curso de Gestión de Dependencias y Paquetes con NPM
   - [ ] Curso de Integración de Backend y Frontend
+- [ ] Python
+  - [ ] Curso Básico de Python
+  - [ ] Curso de Introducción al Pensamiento Computacional con Python
+  - [ ] Curso de Python
+  - [ ] Curso de POO y Algoritmos con Python
