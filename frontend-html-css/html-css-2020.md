@@ -12,6 +12,9 @@
     - [Imágenes](#imágenes)
     - [Video](#video)
   - [Formularios](#formularios)
+    - [General](#general)
+    - [Auto-completado y required](#auto-completado-y-required)
+    - [Elemento 'select'](#elemento-select)
 
 ## Desarrolladores Web
 
@@ -63,6 +66,8 @@ Ejemplo:
 ```html
 <tag attr1="value1" attr2> [contenido] </tag>
 ```
+
+[Lista de etiquetas en HTML](https://htmlreference.io/)
 
 ## Estructura de un sitio web
 
@@ -288,6 +293,8 @@ minutos específicos, esto se hace de esta forma:
 
 ## Formularios
 
+### General
+
 Los formularios son la manera en la que interactuamos con el usuario.
 
 > "El mejor formulario es el que no existe."
@@ -328,7 +335,8 @@ Descripción:
   atributo 'type' indica que tipo de datos puede recibir, el atributo 'id' debe
   coincidir con el 'for' de su 'label' asociado, esto identifica el elemento,
   y el atributo 'placeholder' que muestra un texto atenuado en los formularios
-  que reciben texto.
+  que reciben texto, el atributo 'name' sirve para identificar el elemento en el
+  servidor, 
 
 [Lista de 'types' disponible para 'input'](https://www.w3schools.com/html/html_form_input_types.asp)
 
@@ -353,6 +361,21 @@ Ejemplo:
   <input type="submit">
 </form>
 ```
+
+Dentro de HTML existen 2 tipos de botones, estos son 'button' e 'input type="submit"',
+el primero se usa en cualquier contexto y el segundo solo en formularios
+
+```html
+<!-- Unicamente usar dentro de formularios -->
+<input type="submit"> <!-- Por defecto el texto que muestra es Enviar -->
+<input type="submit" value="Cargar"> <!-- Podemos personalizar el texto del botón -->
+
+<!-- Botón en cualquier situación -->
+<button>Enviar</button>
+<button type="submit">Enviar</button> <!-- Si queremos usarla dentro de un formulario -->
+```
+
+### Auto-completado y required
 
 HTML nos proporciona en los elementos 'input' herramientas de auto-completado,
 las cuales nos intentan dar sugerencias de posible datos que podemos llenar en
@@ -410,3 +433,56 @@ un error en caso de que el campo no este rellenado.
   <input type="submit" />
 </form>
 ```
+
+### Elemento 'select'
+
+Si queremos habilitar la opción de que el usuario pueda seleccionar una opción
+entre muchas otras podemos usar el elemento 'select', esto nos permite indicarle
+al usuario cuales son las opciones que tiene disponible, se hace de la siguiente
+forma:
+
+```html
+<select name="cursos" id="cursos">
+  <option value="JavaScript">JavaScript</option>
+  <option value="HTML5">HTML5</option>
+  <option value="CSS3">CSS3</option>
+  <option value="Web Standards">Web Standards</option>
+</select>
+```
+
+Descripción:
+
+- **'select name="" id=""'**: Esta linea indica que estamos trabajando con un
+  elemento select, con el atributo 'name' le damos una identificación en el
+  servidor y el atributo 'id' nos permite acceder a ese elemento desde el
+  frontend.
+- **'option value=""'**: Este elemento nos permite indicar un item dentro
+  del 'select', su atributo 'value' es el que sera enviado al servidor, mientras
+  que lo que este dentro de su contenido es lo que se mostrara al usuario.
+
+Esta es la forma normal de hacer un select, sin embargo puede no ser muy util si
+tenemos una gran cantidad de elementos, en ese caso podemos utilizar esta otra
+forma:
+
+```html
+  <input list="cursos"> <!-- Elemento select -->
+
+    <datalist id="cursos"> <!-- Lista de elementos -->
+      <option value="JavaScript"></option>
+      <option value="HTML5"></option>
+      <option value="CSS3"></option>
+      <option value="Web Standards"></option>
+    </datalist>
+```
+
+Descripción:
+
+- **'input list="cursos"'**: Este elemento define el elemento select, y en lugar
+  de tener un 'id' tiene el atributo 'list' el cual debe apuntar a un 'id' de un
+  elemento 'datalist', el cual contiene la lista de elementos para el 'select',
+  esto permite escribir en el input y el navegador filtrara los datos mientras
+  escribimos.
+- **'datalist id="cursos"'**: Este elemento contiene elementos 'option' con las
+  opciones que puede contener el 'select', su 'id' sirve para vincularse a un
+  'input' con el atributo 'list'.
+- **'option value=""'**: Este elemento define una opción para el 'select'.
