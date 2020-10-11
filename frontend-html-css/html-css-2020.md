@@ -15,6 +15,9 @@
     - [General](#general)
     - [Auto-completado y required](#auto-completado-y-required)
     - [Elemento 'select'](#elemento-select)
+  - [CSS](#css)
+    - [Uso basico de CSS](#uso-basico-de-css)
+    - [Modelo de caja](#modelo-de-caja)
 
 ## Desarrolladores Web
 
@@ -85,7 +88,7 @@ estructura básica es:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="desc">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <header>
@@ -112,6 +115,10 @@ estructura básica es:
 El servidor a la hora de intentar mostrar un sitio web siempre tratara de buscar
 y encontrar un archivo llamado 'index', el cual corresponde a la pagina principal
 de un sitio web.
+
+![Estructura de un sitio web](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2817%29-f08bb2df-26d7-4221-aebc-c84dd0b015e1.jpg)
+
+![Estructura de un sitio web 2](https://static.platzi.com/media/user_upload/An%20Overview%20of%20HTML5%20Semantics-bfc15245-ca9f-4e5e-b888-4744eb8fca05.jpg)
 
 ### El head del sitio web
 
@@ -486,3 +493,102 @@ Descripción:
   opciones que puede contener el 'select', su 'id' sirve para vincularse a un
   'input' con el atributo 'list'.
 - **'option value=""'**: Este elemento define una opción para el 'select'.
+
+## CSS
+
+### Uso basico de CSS
+
+El CSS (Cascade StyleSheet, hoja de estilos en cascada), sirve para introducir
+estilos a nuestro sitio web, ya que con HTML unicamente definimos el contenido y
+la estructura.
+
+Para enlazar un archivo CSS a un documento HTML, lo hacemos de la siguiente forma:
+
+```html
+<head>
+  <link rel="stylesheet" href="./style.css"><!-- Enlazar CSS desde un archivo externo -->
+  <style>
+    /* Estilos usando el elemento style, para introducirlo directamente en el HTML */
+  </style>
+</head>
+<body>
+  <p style="color: red;"><!-- Aplicar estilos dentro del propio elemento HTML, embebido --></p>
+  <p class='parrafo'></p>
+</body>
+```
+
+Descripción:
+
+- Podemos introducir CSS desde un archivo externo con el elemento 'link' en el
+  'head' del documento, al elemento 'link' le pasamos como atributo 'rel' el
+  valor 'stylesheet' que indica que el archivo que estamos pasando es un CSS, y
+  el atributo 'href' indica la dirección donde esta el archivo.
+- Podemos introducir directamente el CSS al documento, usando el elemento 'style',
+  solo es recomendable cuando no tenemos muchas reglas.
+- Podemos aplicar estilos a un elemento directamente con el atributo 'style', no
+  es recomendable utilizarlo.
+
+La sintaxis de CSS consta de selectores y reglas, un selector apunta a 1 o mas
+elementos, y las reglas aplican estilos a esos elementos.
+
+```css
+selector {
+  propiedad: valor-propiedad; /* Declaración = propiedad: valor  */
+}
+```
+
+En CSS podemos usar selectores de elemento, de clase y por id, utilizamos el '.'
+para seleccionar clases y '#' para seleccionar 'id'.
+
+```html
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <p class='parrafo'>Un texto</p>
+  <p id='texto'>Otro texto</p>
+</body>
+```
+
+```css
+/* elemento */
+p { /* Selector de un elemento 'p' */
+  color: blue; /* Regla, aplica color azul */
+  font-size: 30px;
+}
+
+/* class */
+.parrafo { /* Selector de la clase 'parrafo', usamos '.' para las clases */
+  color: red;
+}
+
+/* id */
+#texto { /** Selector del elemento con id, 'texto', usamos '#'para los id **/
+  color: yellow;
+  font-size: 24px;
+}
+```
+
+### Modelo de caja
+
+Cuando trabajamos con CSS simplemente trabajamos con cajas las cuales actúan como
+contenedores donde colocamos nuestros elementos HTML, el modelo de caja es el
+siguiente:
+
+![Modelo de Caja](https://static.platzi.com/media/user_upload/Captura-46950aca-9335-48ab-8ef5-2f04c4f31683.jpg)
+
+Descripción:
+
+- El 'margin' es un espacio que existe externo al modelo de caja, es decir existe
+  entre otros elementos.
+- El 'border' indica el limite del modelo de caja.
+- El 'padding' es un margen interno y nos ayuda a posicionar el contenido dentro
+  de la caja.
+- El 'content' es el contenido del elemento.
+  - El 'width' indica el ancho del contenido.
+  - El 'height' indica el alto del contenido.
+
+Cada uno de estos elementos tiene algunas propiedades por defecto, las cuales son:
+
+![Modelo de Caja 2](https://static.platzi.com/media/user_upload/Captura1-0fcf145d-42b2-4b2d-8560-0b1c25acf03e.jpg)
+
