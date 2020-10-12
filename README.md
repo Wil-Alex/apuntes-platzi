@@ -31,6 +31,11 @@ Repositorio de apuntes tomados de los cursos de Platzi
   - [ ] Curso Practico de Maquetación en CSS
   - [ ] Curso de Preprocesadores CSS
   - [ ] Curso de Sass
+  - [ ] Curso de Lass
+  - [ ] Curso de Stylus
+  - [ ] Curso de Bootstrap
+  - [ ] Curso de Foundation
+  - [ ] Curso de Materialize
   - [ ] Curso de Debugging con Chrome DevTools
   - [ ] Curso de Firebase para Web
 - [ ] JavaScript
