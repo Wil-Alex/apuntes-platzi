@@ -246,8 +246,8 @@ util para comprimir directorios, para hacer esto tenemos que empaquetar los
 directorios en un archivo y para eso usamos la herramienta 'tar', de esta forma:
 
 ```bash
-tar cf [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Empaquetar archivos en un archivo tar
-tar cf [DIRECTORIO] # Empaquetar un directorio
+tar cf [ARCHIVO TAR] [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Empaquetar archivos en un archivo tar
+tar cf [ARCHIVO TAR] [DIRECTORIO] # Empaquetar un directorio
 tar xf [ARCHIVO TAR] # Extrae los archivos de un archivo tar
 ```
 
@@ -255,7 +255,7 @@ La herramienta 'tar' solo empaqueta los archivos en uno solo, sin embargo podemo
 combinarla con 'gzip' para comprimir el archivo 'tar' de esta forma:
 
 ```bash
-tar czf [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Comprimir varios archivos
+tar czf [ARCHIVO TAR] [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Comprimir varios archivos
 tar xzf [ARCHIVO TAR] # Extraer los archivos de un archivo tar.gz
 ```
 
