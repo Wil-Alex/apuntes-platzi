@@ -618,6 +618,9 @@ main {
 }
 ```
 
+Tomar en cuenta que cuando una propiedad recibe tamaños si este es 0 no debe de
+tener unidad de medida.
+
 ### Selectores en CSS
 
 #### Herencia de propiedades en CSS
@@ -643,9 +646,8 @@ navegador sigue en este orden las siguientes reglas:
    1. Estilos del navegador
    2. Hoja de CSS (nuestros archivos CSS)
    3. Declaraciones !important en nuestro CSS, (usar !important es mala practica)
-2. Especifidad: Suma cuantas veces un selector tiene alguno de estos elementos
-   teniendo en cuenta que el numero mas a la izquierda es mas especifico que el
-   de la derecha.
+2. Especifidad: Es un valor asociado según como se le estan aplicando los estilos
+   a un elemento en especifico.
    - !important (1,0,0,0,0)
    - Estilos aplicados en el elemento directamente (0,1,0,0,0)
    - #id (0,0,1,0,0)
@@ -657,3 +659,11 @@ navegador sigue en este orden las siguientes reglas:
    cargado después de otro, puede sobre-escribir reglas del primero.
 
 ![Algoritmo de CSS](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2863%29-212a5cb5-2d4c-49a0-98a2-d33b54457211.jpg)
+
+Es importante destacar que no se pueden repetir 'id' a lo largo del documento, es
+decir es único, y que tampoco un elemento puede tener mas de un 'id', en cambio
+un elemento si puede tener mas de una clase, es decir son genéricas.
+
+Los estilos embebidos, tienen mayor importancia que los estilos definidos en una
+hoja de estilos CSS, sin embargo se debe evitar su uso en la medida de lo posible,
+por ultimo los selectores de etiqueta son los últimos en ser aplicados.
