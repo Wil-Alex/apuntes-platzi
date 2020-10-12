@@ -18,6 +18,9 @@
   - [CSS](#css)
     - [Uso basico de CSS](#uso-basico-de-css)
     - [Modelo de caja](#modelo-de-caja)
+    - [Selectores en CSS](#selectores-en-css)
+      - [Herencia de propiedades en CSS](#herencia-de-propiedades-en-css)
+      - [Especifidad de selectores](#especifidad-de-selectores)
 
 ## Desarrolladores Web
 
@@ -582,8 +585,8 @@ Descripción:
 - El 'margin' es un espacio que existe externo al modelo de caja, es decir existe
   entre otros elementos.
 - El 'border' indica el limite del modelo de caja.
-- El 'padding' es un margen interno y nos ayuda a posicionar el contenido dentro
-  de la caja.
+- El 'padding' es un relleno o margen interno y nos ayuda a posicionar el
+  contenido dentro de la caja.
 - El 'content' es el contenido del elemento.
   - El 'width' indica el ancho del contenido.
   - El 'height' indica el alto del contenido.
@@ -592,3 +595,65 @@ Cada uno de estos elementos tiene algunas propiedades por defecto, las cuales so
 
 ![Modelo de Caja 2](https://static.platzi.com/media/user_upload/Captura1-0fcf145d-42b2-4b2d-8560-0b1c25acf03e.jpg)
 
+Todos los elementos por defecto tienen algunas propiedades, podemos anularlas con
+el selector universal '*', para aplicarle a todos los elementos un 'padding' y
+'margin' de 0, ademas para que el tamaño de caja tome en cuenta el contenido, el
+relleno y el borde usamos la propiedad 'box-sizing' en 'border-box', esta regla
+es importante ponerla en todos nuestros proyectos.
+
+Ejemplo:
+
+```css
+* { /* el elemento '*' es el selector universal, aplica estas reglas a todo */
+  padding: 0; /* Hace que todos los elementos no tengan margen interno o relleno */
+  margin: 0; /* Hace que todos los elementos no tengan margen o espacio entre elementos */
+  box-sizing: border-box; /* Toma como tamaño de caja content + padding + border, por defecto solo se tomaría el content */
+}
+
+main {
+  width: 100%; /* Por defecto toma el content como tamaño*/
+  height: 500px;
+  border: 10px solid blue;
+  padding: 20px 35px;
+}
+```
+
+### Selectores en CSS
+
+#### Herencia de propiedades en CSS
+
+En CSS definimos reglas a elementos que contienen otros elementos, estos otros
+elementos hijos, pueden heredar propiedades de su elemento padre, o romper la
+herencia con sus propias reglas de CSS, existen 3 modos de herencia en CSS:
+
+- **'inherit'**: Intenta aplicar la regla de su elemento padre, si este no tiene
+  la regla definida explora los elementos hasta el elemento superior, si este no
+  tiene la regla definida aplica el valor por defecto.
+- **'initial'**: Aplica el valor por defecto.
+- **'unset'**: Busca la regla en el elemento padre y si no existe aplica el valor
+  por defecto.
+
+#### Especifidad de selectores
+
+Cuando existen conflictos entre reglas de CSS, es decir cuando a un elemento le
+es aplicado varias veces la misma regla con valores distintos, el algoritmo del
+navegador sigue en este orden las siguientes reglas:
+
+1. Importancia: El navegador aplica en este orden las reglas
+   1. Estilos del navegador
+   2. Hoja de CSS (nuestros archivos CSS)
+   3. Declaraciones !important en nuestro CSS, (usar !important es mala practica)
+2. Especifidad: Suma cuantas veces un selector tiene alguno de estos elementos
+   teniendo en cuenta que el numero mas a la izquierda es mas especifico que el
+   de la derecha.
+   - !important (1,0,0,0,0)
+   - Estilos aplicados en el elemento directamente (0,1,0,0,0)
+   - #id (0,0,1,0,0)
+   - .class (0,0,0,1,0)
+   - etiquetas (0,0,0,0,1)
+3. Orden de las fuentes: Carga desde la primera linea a la ultima, por lo que una
+   regla posterior puede sobre-escribir una regla definida posteriormente, esto
+   aplica también cuando tenemos múltiples archivos CSS, ya que un archivo que es
+   cargado después de otro, puede sobre-escribir reglas del primero.
+
+![Algoritmo de CSS](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2863%29-212a5cb5-2d4c-49a0-98a2-d33b54457211.jpg)
