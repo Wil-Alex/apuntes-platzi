@@ -333,6 +333,7 @@ esto se hace de la siguiente manera:
 ```bash
 git push # Por defecto git push origin master
 git push origin [rama] # Envía a una rama remota distinta de master
+git push origin  -f # Obliga a enviar los cambios incluyendo las operaciones de borrar commit
 ```
 
 También podemos traer cambios del repositorio remoto al repositorio local, esto
