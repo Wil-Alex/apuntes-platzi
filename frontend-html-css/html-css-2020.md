@@ -21,6 +21,8 @@
     - [Selectores en CSS](#selectores-en-css)
       - [Herencia de propiedades en CSS](#herencia-de-propiedades-en-css)
       - [Especifidad de selectores](#especifidad-de-selectores)
+      - [Combinadores en CSS](#combinadores-en-css)
+    - [Unidades de medida en CSS](#unidades-de-medida-en-css)
 
 ## Desarrolladores Web
 
@@ -646,10 +648,11 @@ navegador sigue en este orden las siguientes reglas:
    1. Estilos del navegador
    2. Hoja de CSS (nuestros archivos CSS)
    3. Declaraciones !important en nuestro CSS, (usar !important es mala practica)
-2. Especifidad: Es un valor asociado según como se le estan aplicando los estilos
-   a un elemento en especifico.
+2. Especifidad: Es un valor asociado según como se le están aplicando los estilos
+   a un elemento en especifico, el peso de cada una de estas formas es la
+   siguiente.
    - !important (1,0,0,0,0)
-   - Estilos aplicados en el elemento directamente (0,1,0,0,0)
+   - Estilos embebidos en el elemento (0,1,0,0,0)
    - #id (0,0,1,0,0)
    - .class (0,0,0,1,0)
    - etiquetas (0,0,0,0,1)
@@ -667,3 +670,75 @@ un elemento si puede tener mas de una clase, es decir son genéricas.
 Los estilos embebidos, tienen mayor importancia que los estilos definidos en una
 hoja de estilos CSS, sin embargo se debe evitar su uso en la medida de lo posible,
 por ultimo los selectores de etiqueta son los últimos en ser aplicados.
+
+Es una mala practica usar estilos embebidos, estilos marcado con '!important' y
+utilizar los 'id' como selectores, en su lugar es recomendable utilizar la
+especifidad con los selectores de etiqueta y clase.
+
+#### Combinadores en CSS
+
+Con esto podemos modificar la especifidad de nuestros selectores al combinar
+varios selectores, los combinadores de CSS son:
+
+```css
+ div + p {/* Elementos hermanos cercanos */}
+ div ~ p {/* Elementos hermanos generales */}
+ div > p {/* Elemento hijo */}
+ div p {/* Elemento descendiente */}
+```
+
+En este caso el selector de elemento hermano cercano (div + p) aplica el
+selector a todos los elementos 'p' que estén inmediatamente después de un
+elemento 'div' y que sean elementos hermanos en el árbol de elementos.
+
+El selector de elemento hermano general (div ~ p) aplica el selector a todos los
+elementos 'p' que tengan un elemento hermano 'div', sin importar donde se ubique
+este elemento 'div'.
+
+El selector de elemento hijo (div > p) selecciona todos los elementos 'p' que
+sean hijos directos del elemento 'div', si no son elemento hijos directos del
+elemento 'div' no se aplica.
+
+El selector de elemento descendiente (div p) selecciona cualquier elemento 'p'
+que este dentro de un elemento 'div' ya sea de manera directa o indirecta.
+
+Todos estos selectores funcionan también con id's y clases de HTML.
+
+[Para practicar los combinadores de CSS](https://flukeout.github.io/)
+
+### Unidades de medida en CSS
+
+Dentro de CSS podemos utilizar varias unidades de medida, las cuales pueden ser
+absolutas, es decir son siempre iguales o relativas, las cuales están en función
+de otro parámetro para establecer su valor.
+
+Medidas relativas:
+
+**Em**: Esta unidad determina el tamaño basándose en la propiedad 'font-size' del
+elemento padre directo, si este no lo tiene, busca en el elemento padre anterior
+y asi sucesivamente, si el elemento padre esta definido con otra medida relativa
+primero calcula la medida del elemento padre y luego sobre esa medida calcula la
+medida del elemento hijo, por ejemplo:
+
+```html
+<main class="text-container">
+  <p>Soy un texto de ejemplo</p>
+    <div>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+</main>
+```
+
+```css
+body{
+  font-size: 20px;
+}
+
+.text-container {
+  font-size: 1.5em; 
+}
+
+.text-container div {
+  font-size: 1.5em;
+}
+```
