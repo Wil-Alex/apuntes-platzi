@@ -23,6 +23,7 @@
       - [Especifidad de selectores](#especifidad-de-selectores)
       - [Combinadores en CSS](#combinadores-en-css)
     - [Unidades de medida en CSS](#unidades-de-medida-en-css)
+    - [Posicionamiento de elementos con CSS](#posicionamiento-de-elementos-con-css)
 
 ## Desarrolladores Web
 
@@ -735,10 +736,57 @@ body{
 }
 
 .text-container {
-  font-size: 1.5em; 
+  font-size: 1.5em;
 }
 
 .text-container div {
   font-size: 1.5em;
 }
 ```
+
+**Rem**: Esta unidad de medida relativa toma como base el atributo 'font-size'
+de la raíz del documento, normalmente la etiqueta 'html', se comporta como 'em',
+es una buena practica utilizar pixeles para las fuentes y luego utilizar 'rem'
+para todo lo demás.
+
+```css
+html {
+  font-size: 62.5%; /* Haciendo esto hacemos que 1 rem sea equivalente a 10px  */
+}
+
+p {
+  font-size: 1.6rem;  /* 16px */
+}
+```
+
+**min/max - width/height**: Podemos definir valores mínimos y máximos para los
+elementos utilizando las propiedades:
+
+- min-width: Ancho mínimo
+- min-height: Altura mínima
+- max-width: Ancho máximo
+- max-height: Altura máxima
+
+Cuando utilizamos min/max width, debemos utilizar un 'width' como base dado en
+unidades de porcentaje.
+
+Cuando utilizamos '%', toma como base su elemento padre y si queremos usar como
+base el tamaño de la pantalla del dispositivo que estamos usando podemos usar el
+viewport, 'vh' para viewport height y 'vw' para viewport width.
+
+### Posicionamiento de elementos con CSS
+
+Dentro de CSS tenemos la regla 'position' la cual nos permite indicar la manera
+en la que los elementos serán posicionados utilizando las reglas de CSS.
+
+Existen varios tipos de posicionamientos en CSS, los cuales son:
+
+- static (default)
+- absolute: Tiene una posición fija respecto a los otros elementos y puede ser
+  movido de manera independiente a los otros elementos.
+- relative: Tiene una posicion relativa a su elemento contenedor.
+- fixed
+- sticky
+
+[Guia de flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[Flexbox froggy](https://flexboxfroggy.com/#es)
