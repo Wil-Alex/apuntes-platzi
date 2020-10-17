@@ -297,4 +297,5 @@ Existen varios tipos de posicionamientos en CSS, los cuales son:
 - sticky
 
 [Guia de flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
 [Flexbox froggy](https://flexboxfroggy.com/#es)
