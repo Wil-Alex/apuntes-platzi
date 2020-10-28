@@ -118,7 +118,7 @@ Ejemplo:
 * { /* el elemento '*' es el selector universal, aplica estas reglas a todo */
   padding: 0; /* Hace que todos los elementos no tengan margen interno o relleno */
   margin: 0; /* Hace que todos los elementos no tengan margen o espacio entre elementos */
-  box-sizing: border-box; /* Toma como tamaño de caja content + padding + border, por defecto solo se tomaría el content */
+  box-sizing: border-box; /* Toma como tamaño de caja content + 'padding' + border, por defecto solo se tomaría el content */
 }
 
 main {
