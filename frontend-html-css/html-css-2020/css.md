@@ -9,6 +9,7 @@
     - [Combinadores en CSS](#combinadores-en-css)
   - [Unidades de medida en CSS](#unidades-de-medida-en-css)
   - [Posicionamiento de elementos con CSS](#posicionamiento-de-elementos-con-css)
+  - [Variables en CSS](#variables-en-css)
 
 ## Uso basico de CSS
 
@@ -296,6 +297,25 @@ Existen varios tipos de posicionamientos en CSS, los cuales son:
 - fixed
 - sticky
 
-[Guia de flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+## Variables en CSS
 
-[Flexbox froggy](https://flexboxfroggy.com/#es)
+```css
+:root { /* Hace referencia al HTML */
+  --primary-color: #083476; /* De esta manera puedo definir variables */
+  --secondary-color: #b4d2f7;
+  --header-size: 4rem;
+  --font: 1.8rem;
+}
+
+header {
+  background-color: var(--primary-color); /* Asi puedo llamar a los valores de variables */
+}
+
+main {
+  font-size: var(--font);
+}
+
+footer {
+  background-color: var(--secondary-color);
+}
+```
