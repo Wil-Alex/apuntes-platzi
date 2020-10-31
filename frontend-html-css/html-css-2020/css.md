@@ -10,6 +10,7 @@
   - [Unidades de medida en CSS](#unidades-de-medida-en-css)
   - [Posicionamiento de elementos con CSS](#posicionamiento-de-elementos-con-css)
   - [Variables en CSS](#variables-en-css)
+  - [Web fonts](#web-fonts)
 
 ## Uso basico de CSS
 
@@ -318,4 +319,56 @@ main {
 footer {
   background-color: var(--secondary-color);
 }
+```
+
+## Web fonts
+
+Dentro del navegador existen familias de fuentes genéricas, las cuales ya vienen
+por defecto en el navegador, estas son:
+
+  - **serif**: Times New Roman, Georgia
+
+| **Genericas**  |       **Fuentes**        |
+| :------------: | :----------------------: |
+|   **serif**    | Times New Roman, Georgia |
+| **sans-serif** |    Helvetica, Verdana    |
+|  **cursive**   |            ?             |
+| **monospace**  | Courier New, Roboto Mono |
+
+Podemos buscar otras fuentes personalizada en:
+
+[Google Fonts](https://fonts.google.com/)
+
+[Para encontrar pares de fuentes](https://fontpair.co/)
+
+Podemos seleeccionar fuentes en distintos 'weight', es decir en diferente formas,
+por ejemplo: *italic*, **bold**, light, medium, regular, etc. Para integrar estas
+fuentes a nuestro documento HTML, usamos:
+
+```css
+/* Mala Practica */
+/* Font: roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+```
+
+```html
+<html>
+  <head>
+    <!-- Buena practica -->
+    <!-- Font: roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Es mejor cargar las fuentes en el 'head' y siempre antes que el CSS -->
+  </head>
+</html>
+```
+
+Para cargar las fuentes utilizamos:
+
+```css
+html {
+  font-family: 'Roboto', sans-serif; /* sans-serif o serif, como fallback según el caso */
+}
+
+/*  */
+
 ```
