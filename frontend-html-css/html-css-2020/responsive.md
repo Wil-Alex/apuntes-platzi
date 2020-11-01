@@ -1,9 +1,5 @@
 # Responsive Web Design
 
-## Mostly Fluid
-
-![Mostly Fluid](https://static.platzi.com/media/user_upload/slide_mostly_fluid-34a3450d-91a3-4b83-9295-1a24bc61c9b8.jpg)
-
 ## Media Queries
 
 Los breakpoints son las dimensiones en los que se aplican cambios a los elementos
@@ -40,7 +36,13 @@ La mejor practica es aplicarlos directamente desde el head de esta manera.
 </html>
 ```
 
-**Ejemplo de Mostly Fluid**:
+Break-points recomendados:
+
+- 320px — 480px: Mobile devices
+- 481px — 768px: iPads, Tablets
+- 769px — 1024px: Small screens, laptops
+- 1025px — 1200px: Desktops, large screens
+- 1201px and more —  Extra large screens, TV
 
 ```css
 /* CSS BASE */
@@ -65,12 +67,24 @@ html {
   height: 15rem;
 }
 
-.box1 {background-color: crimson;}
-.box2 {background-color: darkblue;}
-.box3 {background-color: darkorange;}
-.box4 {background-color: forestgreen;}
-.box5 {background-color: orangered;}
+.box1 {
+  background-color: #003476;
+}
+.box2 {
+  background-color: #0062d2;
+}
+.box3 {
+  background-color: #b4d2f7;
+}
+.box4 {
+  background-color: #d5dfef;
+}
+.box5 {
+  background-color: #dfe1e5;
+}
 ```
+
+![Mostly Fluid](https://static.platzi.com/media/user_upload/slide_mostly_fluid-34a3450d-91a3-4b83-9295-1a24bc61c9b8.jpg)
 
 ```css
 @media screen and (min-width: 600px) {
@@ -99,6 +113,44 @@ html {
 
   .box5 {
     width: 34%;
+  }
+}
+```
+
+![Layout Shifter](https://static.platzi.com/media/user_upload/slide_layout_shifter-43303113-fa25-4108-bef3-ae83d366a845.jpg)
+
+```css
+.box4 {
+  height: auto;
+}
+
+@media screen and (min-width: 600px){
+  .box1 {
+    width: 25%;
+  }
+  .box4 {
+    width: 75%;
+  }
+  .box5 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .container {
+    width: 800px;
+    margin: 0 auto;
+  }
+    .box1 {
+    width: 50%;
+    order: 1;
+  }
+  .box4 {
+    width: 100%;
+  }
+  .box5 {
+    width: 50%;
+    order: 2;
   }
 }
 ```
