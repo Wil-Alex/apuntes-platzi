@@ -2,6 +2,7 @@
 
 - [Display](#display)
   - [Display flex](#display-flex)
+  - [Responsive Web Design](#responsive-web-design)
 
 Dentro de CSS existen los display, los cuales son las maneras en las que los
 elementos se colocan en el HTML.
@@ -66,3 +67,54 @@ siguiente manera:
 [Guia de flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 [Flexbox froggy](https://flexboxfroggy.com/#es)
+
+## Responsive Web Design
+
+Los breakpoints son las dimensiones en los que se aplican cambios a los elementos
+es decir re-posicionar o re-dimensionar los elementos.
+
+```css
+@media (min-width: 480px){ /* Cada uno de estos es un break-point */
+    /* mobile */
+}
+@media (min-width: 760px){
+    /* tablet */
+}
+@media (min-width: 1024px){
+    /* desktop */
+}
+```
+
+La mejor estrategia es utilizar mobile-first, es decir diseñar primero la pagina
+para dispositivos móviles y posteriormente diseñarlos para dispositivos con
+mayores dimensiones, siempre deben ir los media queries al final del archivo CSS.
+
+Siempre se deben aplicar los viewports mas pequeños primero y posteriormente se
+aplican los mas grandes.
+
+La mejor practica es aplicarlos directamente desde el head de esta manera.
+
+```html
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css"> <!-- Codigo base y mobile -->
+    <link rel="stylesheet" href="style.css" media="screen and (min-width: 760px)">
+    <link rel="stylesheet" href="style.css" media="screen and (min-width: 1024px)">
+  </head>
+</html>
+```
+
+Break-points recomendados:
+
+- 320px — 480px: Mobile devices
+- 481px — 768px: iPads, Tablets
+- 769px — 1024px: Small screens, laptops
+- 1025px — 1200px: Desktops, large screens
+- 1201px and more —  Extra large screens, TV
+
+
+![Mostly Fluid](https://static.platzi.com/media/user_upload/slide_mostly_fluid-34a3450d-91a3-4b83-9295-1a24bc61c9b8.jpg)
+
+![Layout Shifter](https://static.platzi.com/media/user_upload/slide_layout_shifter-43303113-fa25-4108-bef3-ae83d366a845.jpg)
+
+![Column Drop](https://static.platzi.com/media/user_upload/slide_column_drop-e1902899-937e-4bf4-9aa4-6d79e06e7180.jpg)
