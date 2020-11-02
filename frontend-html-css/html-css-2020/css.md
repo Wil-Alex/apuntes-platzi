@@ -326,7 +326,7 @@ footer {
 Dentro del navegador existen familias de fuentes genéricas, las cuales ya vienen
 por defecto en el navegador, estas son:
 
-  - **serif**: Times New Roman, Georgia
+- **serif**: Times New Roman, Georgia
 
 | **Genericas**  |       **Fuentes**        |
 | :------------: | :----------------------: |
@@ -348,7 +348,7 @@ fuentes a nuestro documento HTML, usamos:
 ```css
 /* Mala Practica */
 /* Font: roboto */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 ```
 
 ```html

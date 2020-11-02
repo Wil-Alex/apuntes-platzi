@@ -1,8 +1,12 @@
 # Display
 
 - [Display](#display)
+  - [Basico](#basico)
   - [Display flex](#display-flex)
   - [Responsive Web Design](#responsive-web-design)
+  - [Imagenes responsive](#imagenes-responsive)
+
+## Basico
 
 Dentro de CSS existen los display, los cuales son las maneras en las que los
 elementos se colocan en el HTML.
@@ -92,14 +96,16 @@ mayores dimensiones, siempre deben ir los media queries al final del archivo CSS
 Siempre se deben aplicar los viewports mas pequeños primero y posteriormente se
 aplican los mas grandes.
 
-La mejor practica es aplicarlos directamente desde el head de esta manera.
+La mejor practica es aplicarlos directamente desde el head utilizando el atributo
+media el cual permite cargar solo los archivos correspondientes al break-point
+especifico.
 
 ```html
 <html>
   <head>
     <link rel="stylesheet" href="style.css"> <!-- Codigo base y mobile -->
-    <link rel="stylesheet" href="style.css" media="screen and (min-width: 760px)">
-    <link rel="stylesheet" href="style.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 760px)">
+    <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)">
   </head>
 </html>
 ```
@@ -112,9 +118,62 @@ Break-points recomendados:
 - 1025px — 1200px: Desktops, large screens
 - 1201px and more —  Extra large screens, TV
 
+Es importante no tener mas de 6 break-points en el proyecto.
 
 ![Mostly Fluid](https://static.platzi.com/media/user_upload/slide_mostly_fluid-34a3450d-91a3-4b83-9295-1a24bc61c9b8.jpg)
 
 ![Layout Shifter](https://static.platzi.com/media/user_upload/slide_layout_shifter-43303113-fa25-4108-bef3-ae83d366a845.jpg)
 
 ![Column Drop](https://static.platzi.com/media/user_upload/slide_column_drop-e1902899-937e-4bf4-9aa4-6d79e06e7180.jpg)
+
+## Imagenes responsive
+
+Cuando utilizamos imágenes y queremos que sean responsive deberíamos descargar al
+menos 3 tamaños de imágenes distintas.
+
+```html
+<picture>
+  <!-- Siempre debe ir la imagen con el viewport mas largo primero -->
+  <source media="(min-width: 1024px)" srcset="large.png">
+  <source media="(min-width: 760px)" srcset="medium.png">
+  <img src="small.png" alt="Imagen de ejemplo"> <!-- Siempre cargamos por defecto la imagen para mobile -->
+</picture>
+```
+
+cuando utilizamos imágenes lo mas recomendable es utilizar el elemento 'figure'
+para que contenga al elemento 'picture' y le damos el tamaño al elemento 'figure'
+mientras que a la imagen se le da el tamaño de 100% para que se adapte de manera
+automatica a las dimensiones del contenedor.
+
+```html
+<figure>
+  <picture>
+    <source media="(min-width: 1024px)" srcset="large.jpg">
+    <source media="(min-width: 760px)" srcset="medium.jpg">
+    <img src="small.jpg">
+  </picture>
+</figure>
+```
+
+```css
+figure {
+  width: 320px; /* Le colocamos el tamaño para mobile */
+}
+
+img {
+  width: 100%; /* La imagen se adapta al contenedor figure */
+}
+
+/* Modificamos el tamaño del figure */
+@media screen and (min-width: 760px){
+  figure {
+    width: 760px;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  figure {
+    width: 1024px;
+  }
+}
+```
