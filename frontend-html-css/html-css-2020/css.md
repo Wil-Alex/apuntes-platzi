@@ -372,3 +372,12 @@ html {
 /*  */
 
 ```
+
+Según conceptos de diseño hay varias recomendaciones para elegir la fuente que
+vamos a utilizar en nuestro sitio web:
+
+- Para textos en digital (Como páginas web) usamos fuente sans-serif.
+- Las fuentes serif se recomiendan para impresas o en digital para títulos.
+
+Para calcular el interlineado usamos la siguiente regla:
+> 2 puntos más que la fuente (Fuente de 8px pues interlineado de 10px)”

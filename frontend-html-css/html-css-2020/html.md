@@ -15,6 +15,7 @@
     - [General](#general)
     - [Auto-completado y required](#auto-completado-y-required)
     - [Elemento 'select'](#elemento-select)
+  - [Accesibilidad](#accesibilidad)
 
 ## Desarrolladores Web
 
@@ -490,3 +491,29 @@ Descripción:
   opciones que puede contener el 'select', su 'id' sirve para vincularse a un
   'input' con el atributo 'list'.
 - **'option value=""'**: Este elemento define una opción para el 'select'.
+
+## Accesibilidad
+
+La semántica nos permite crear productos que puedan ser utilizados por personas
+con algún tipo de discapacidad, la semántica nos permite indicar en que parte del
+contenido estamos, por ejemplo: 'header' -> Cabecera, 'main' -> Parte principal y
+'footer' -> Pie de pagina.
+
+Es recomendable aplicar semántica lo mas que se pueda evitando utilizar elementos
+de tipo 'div', excepto cuando se requiera para diseñar el sitio web.
+
+Es recomendable utilizar siempre medias relativas para el texto en lugar de usar
+medidas absolutas, esto permite escalar el tamaño del texto si es necesario.
+
+La etiqueta 'label' sirve para contener elementos 'input', el elemento 'label'
+tiene un atributo 'for' que debe coincidir con el atributo 'id' del elemento
+'input', esto permite que al hacer click en el 'label' ya puedo empezar a
+ingresar información en el 'input', esto permite indicarle a los programas de
+accesibilidad cuales son los input asociados a un texto.
+
+El atributo 'alt' indica a los software de lectura de pantalla cual es la
+descripción de la imagen a la que esta apuntando, también se muestra en caso de
+que el contenido no pueda cargarse.
+
+El atributo 'title' indica el texto que muestra un elemento cuando colocamos el
+puntero del ratón encima de el.
