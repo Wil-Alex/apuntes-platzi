@@ -7,6 +7,7 @@
     - [Herencia de propiedades en CSS](#herencia-de-propiedades-en-css)
     - [Especifidad de selectores](#especifidad-de-selectores)
     - [Combinadores en CSS](#combinadores-en-css)
+  - [Pseudo-clases y Pseudo-elementos en CSS](#pseudo-clases-y-pseudo-elementos-en-css)
   - [Unidades de medida en CSS](#unidades-de-medida-en-css)
   - [Posicionamiento de elementos con CSS](#posicionamiento-de-elementos-con-css)
   - [Variables en CSS](#variables-en-css)
@@ -216,6 +217,34 @@ que este dentro de un elemento 'div' ya sea de manera directa o indirecta.
 Todos estos selectores funcionan también con id's y clases de HTML.
 
 [Para practicar los combinadores de CSS](https://flukeout.github.io/)
+
+## Pseudo-clases y Pseudo-elementos en CSS
+
+Dentro de CSS tenemos las llamadas pseudo-clases, las cuales sirven para indicar
+estados de los elementos dentro del documento, por ejemplo tenemos: 
+
+```css
+li:hover {
+  background-color: blue; /* Cambia el color de fondo cuando el cursor esta sobre el elemento */
+}
+
+li:active {
+  background-color: red; /* Cambia el color de fondo cuando esta el click presionado */
+}
+```
+
+También existen los pseudo-elementos, los cuales indican partes especificas de un
+elemento, por ejemplo:
+
+```css
+li::after {
+  content: ' | '; /* Agrega el carácter '|' después del elemento 'li' */
+}
+```
+
+[Pseudo-Clases](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes)
+
+[Pseudo-Elementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudoelementos)
 
 ## Unidades de medida en CSS
 

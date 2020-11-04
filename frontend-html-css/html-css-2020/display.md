@@ -68,6 +68,16 @@ siguiente manera:
 
 - **'flex-basis'**: Esto permite que los elementos tengan un tamaño base.
 
+Es importante notar que cuando utilizamos 'flex-direction' en 'column' las
+propiedades de 'justify-content' y 'align-items' invierten sus funciones, de la
+misma manera cuando utilizamos las variantes 'reverse' invertimos el orden en el
+que funcionan las reglas 'flex-start' y 'flex-end'.
+
+Existe la propiedad **'align-self'** que sirve para alinear un elemento en
+especifico dentro de un contenedor que tiene el display 'flex', es importante
+notar que esta regla se aplica al elemento que se quiere posicionar y no al
+elemento que lo contiene.
+
 [Guia de flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 [Flexbox froggy](https://flexboxfroggy.com/#es)
