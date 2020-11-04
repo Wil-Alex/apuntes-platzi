@@ -36,13 +36,13 @@ Para enlazar un archivo CSS a un documento HTML, lo hacemos de la siguiente form
 
 Descripción:
 
-- Podemos introducir CSS desde un archivo externo con el elemento 'link' en el
-  'head' del documento, al elemento 'link' le pasamos como atributo 'rel' el
-  valor 'stylesheet' que indica que el archivo que estamos pasando es un CSS, y
-  el atributo 'href' indica la dirección donde esta el archivo.
-- Podemos introducir directamente el CSS al documento, usando el elemento 'style',
+- Podemos introducir CSS desde un archivo externo con el elemento `link` en el
+  `head` del documento, al elemento `link` le pasamos como atributo `rel` el
+  valor `stylesheet` que indica que el archivo que estamos pasando es un CSS, y
+  el atributo `href` indica la dirección donde esta el archivo.
+- Podemos introducir directamente el CSS al documento, usando el elemento `style`,
   solo es recomendable cuando no tenemos muchas reglas.
-- Podemos aplicar estilos a un elemento directamente con el atributo 'style', no
+- Podemos aplicar estilos a un elemento directamente con el atributo `style`, no
   es recomendable utilizarlo.
 
 La sintaxis de CSS consta de selectores y reglas, un selector apunta a 1 o mas
@@ -54,8 +54,8 @@ selector {
 }
 ```
 
-En CSS podemos usar selectores de elemento, de clase y por id, utilizamos el '.'
-para seleccionar clases y '#' para seleccionar 'id'.
+En CSS podemos usar selectores de elemento, de clase y por id, utilizamos el `.`
+para seleccionar clases y `#` para seleccionar `id`.
 
 ```html
 <head>
@@ -96,23 +96,23 @@ siguiente:
 
 Descripción:
 
-- El 'margin' es un espacio que existe externo al modelo de caja, es decir existe
+- El `margin` es un espacio que existe externo al modelo de caja, es decir existe
   entre otros elementos.
-- El 'border' indica el limite del modelo de caja.
-- El 'padding' es un relleno o margen interno y nos ayuda a posicionar el
+- El `border` indica el limite del modelo de caja.
+- El `padding` es un relleno o margen interno y nos ayuda a posicionar el
   contenido dentro de la caja.
-- El 'content' es el contenido del elemento.
-  - El 'width' indica el ancho del contenido.
-  - El 'height' indica el alto del contenido.
+- El `content` es el contenido del elemento.
+  - El `width` indica el ancho del contenido.
+  - El `height` indica el alto del contenido.
 
 Cada uno de estos elementos tiene algunas propiedades por defecto, las cuales son:
 
 ![Modelo de Caja 2](https://static.platzi.com/media/user_upload/Captura1-0fcf145d-42b2-4b2d-8560-0b1c25acf03e.jpg)
 
 Todos los elementos por defecto tienen algunas propiedades, podemos anularlas con
-el selector universal '*', para aplicarle a todos los elementos un 'padding' y
+el selector universal `*`, para aplicarle a todos los elementos un `padding` y
 'margin' de 0, ademas para que el tamaño de caja tome en cuenta el contenido, el
-relleno y el borde usamos la propiedad 'box-sizing' en 'border-box', esta regla
+relleno y el borde usamos la propiedad `box-sizing` en `border-box`, esta regla
 es importante ponerla en todos nuestros proyectos.
 
 Ejemplo:
@@ -175,16 +175,16 @@ navegador sigue en este orden las siguientes reglas:
 
 ![Algoritmo de CSS](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2863%29-212a5cb5-2d4c-49a0-98a2-d33b54457211.jpg)
 
-Es importante destacar que no se pueden repetir 'id' a lo largo del documento, es
-decir es único, y que tampoco un elemento puede tener mas de un 'id', en cambio
+Es importante destacar que no se pueden repetir `id` a lo largo del documento, es
+decir es único, y que tampoco un elemento puede tener mas de un `id`, en cambio
 un elemento si puede tener mas de una clase, es decir son genéricas.
 
 Los estilos embebidos, tienen mayor importancia que los estilos definidos en una
 hoja de estilos CSS, sin embargo se debe evitar su uso en la medida de lo posible,
 por ultimo los selectores de etiqueta son los últimos en ser aplicados.
 
-Es una mala practica usar estilos embebidos, estilos marcado con '!important' y
-utilizar los 'id' como selectores, en su lugar es recomendable utilizar la
+Es una mala practica usar estilos embebidos, estilos marcado con `!important` y
+utilizar los `id` como selectores, en su lugar es recomendable utilizar la
 especifidad con los selectores de etiqueta y clase.
 
 ### Combinadores en CSS
@@ -200,19 +200,19 @@ varios selectores, los combinadores de CSS son:
 ```
 
 En este caso el selector de elemento hermano cercano (div + p) aplica el
-selector a todos los elementos 'p' que estén inmediatamente después de un
-elemento 'div' y que sean elementos hermanos en el árbol de elementos.
+selector a todos los elementos `p` que estén inmediatamente después de un
+elemento `div` y que sean elementos hermanos en el árbol de elementos.
 
 El selector de elemento hermano general (div ~ p) aplica el selector a todos los
-elementos 'p' que tengan un elemento hermano 'div', sin importar donde se ubique
-este elemento 'div'.
+elementos `p` que tengan un elemento hermano `div`, sin importar donde se ubique
+este elemento `div`.
 
-El selector de elemento hijo (div > p) selecciona todos los elementos 'p' que
-sean hijos directos del elemento 'div', si no son elemento hijos directos del
-elemento 'div' no se aplica.
+El selector de elemento hijo (div > p) selecciona todos los elementos `p` que
+sean hijos directos del elemento `div`, si no son elemento hijos directos del
+elemento `div` no se aplica.
 
-El selector de elemento descendiente (div p) selecciona cualquier elemento 'p'
-que este dentro de un elemento 'div' ya sea de manera directa o indirecta.
+El selector de elemento descendiente (div p) selecciona cualquier elemento `p`
+que este dentro de un elemento `div` ya sea de manera directa o indirecta.
 
 Todos estos selectores funcionan también con id's y clases de HTML.
 
@@ -254,7 +254,7 @@ de otro parámetro para establecer su valor.
 
 Medidas relativas:
 
-**Em**: Esta unidad determina el tamaño basándose en la propiedad 'font-size' del
+**Em**: Esta unidad determina el tamaño basándose en la propiedad `font-size` del
 elemento padre directo, si este no lo tiene, busca en el elemento padre anterior
 y asi sucesivamente, si el elemento padre esta definido con otra medida relativa
 primero calcula la medida del elemento padre y luego sobre esa medida calcula la
@@ -283,9 +283,9 @@ body{
 }
 ```
 
-**Rem**: Esta unidad de medida relativa toma como base el atributo 'font-size'
-de la raíz del documento, normalmente la etiqueta 'html', se comporta como 'em',
-es una buena practica utilizar pixeles para las fuentes y luego utilizar 'rem'
+**Rem**: Esta unidad de medida relativa toma como base el atributo `font-size`
+de la raíz del documento, normalmente la etiqueta `html`, se comporta como `em`,
+es una buena practica utilizar pixeles para las fuentes y luego utilizar `rem`
 para todo lo demás.
 
 ```css
@@ -306,16 +306,16 @@ elementos utilizando las propiedades:
 - max-width: Ancho máximo
 - max-height: Altura máxima
 
-Cuando utilizamos min/max width, debemos utilizar un 'width' como base dado en
+Cuando utilizamos min/max width, debemos utilizar un `width` como base dado en
 unidades de porcentaje.
 
-Cuando utilizamos '%', toma como base su elemento padre y si queremos usar como
+Cuando utilizamos `%`, toma como base su elemento padre y si queremos usar como
 base el tamaño de la pantalla del dispositivo que estamos usando podemos usar el
-viewport, 'vh' para viewport height y 'vw' para viewport width.
+viewport, `vh` para viewport height y `vw` para viewport width.
 
 ## Posicionamiento de elementos con CSS
 
-Dentro de CSS tenemos la regla 'position' la cual nos permite indicar la manera
+Dentro de CSS tenemos la regla `position` la cual nos permite indicar la manera
 en la que los elementos serán posicionados utilizando las reglas de CSS.
 
 Existen varios tipos de posicionamientos en CSS, los cuales son:
@@ -368,7 +368,7 @@ Podemos buscar otras fuentes personalizada en:
 
 [Para encontrar pares de fuentes](https://fontpair.co/)
 
-Podemos seleccionar fuentes en distintos 'weight', es decir en diferente formas,
+Podemos seleccionar fuentes en distintos `weight`, es decir en diferente formas,
 por ejemplo: *italic*, **bold**, light, medium, regular, etc. Para integrar estas
 fuentes a nuestro documento HTML, usamos:
 

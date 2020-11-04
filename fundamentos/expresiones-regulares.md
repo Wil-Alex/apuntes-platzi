@@ -34,7 +34,7 @@ lo que se dice que esa cadena es una cadena valida.
 
 Los caracteres reservados son caracteres que forman parte de la sintaxis de las
 expresiones regulares por lo tanto deben no pueden formar parte del texto que se
-esta analizando a menos que se escapen utilizando el carácter '\\'
+esta analizando a menos que se escapen utilizando el carácter `\\`
 
 ### Variables y grupos
 
@@ -49,7 +49,7 @@ $1 // \d{4}, el primer grupo guarda 4 dígitos, por ejemplo un año
 $2 // \w+, el segundo grupo guarda alguna descripción
 ```
 
-Las variables pueden ser accedidas con los símbolos '$1','$2','$3', ... ,'$9'.
+Las variables pueden ser accedidas con los símbolos `$1`,`$2`,`$3`, ... ,`$9`.
 
 ## Elementos
 
@@ -77,7 +77,7 @@ expresiones regulares.
 
 Dentro de las expresiones regulares es posible definir nuestras propias clases,
 es decir nuestro propio conjunto de caracteres que esperamos en una posición
-determinada, utilizando los símbolos: '[', ']', dentro de los corchetes deben ir
+determinada, utilizando los símbolos: `[`, `]`, dentro de los corchetes deben ir
 indicados los caracteres que se esperan en esa posición.
 
 Por ejemplo:
@@ -127,23 +127,23 @@ Por ejemplo:
 
 Ejemplos de cadenas evaluadas por esta expresión regular:
 
-- '0abcd' - valido
-- '01234fgh' - valido
-- 'abcd1234' - invalido - letras antes que los dígitos.
-- '4567'  - valido
-- 'rty' - invalido - solo contiene letras.
+- `0abcd` - valido
+- `01234fgh` - valido
+- `abcd1234` - invalido - letras antes que los dígitos.
+- `4567`  - valido
+- `rty` - invalido - solo contiene letras.
 
 ### Los contadores
 
 Los contadores o cuantificadores permiten indicar el numero de veces consecutivas
 que esta permitido que una clase aparezca, esto se indica con los símbolos de
-llaves, '{', '}', inmediatamente después de la clase a la que se le aplican estos
+llaves, `{`, `}`, inmediatamente después de la clase a la que se le aplican estos
 valores, las maneras de utilizar esto son las siguientes:
 
-- **'{x,y}'**: Indica que la clase puede aparecer entre 'x' y 'y' veces.
-- **'{x,}'**: Indica que la clase tiene que aparecer como mínimo 'x' veces.
-- **'{x,x}','{x}'**: Indica que la clase debe aparecer solamente 'x' veces,
-  ambas notaciones son validas, sin embargo es recomendable usar '{x,x}' siempre,
+- **'{x,y}'**: Indica que la clase puede aparecer entre `x` y `y` veces.
+- **'{x,}'**: Indica que la clase tiene que aparecer como mínimo `x` veces.
+- **'{x,x}','{x}'**: Indica que la clase debe aparecer solamente `x` veces,
+  ambas notaciones son validas, sin embargo es recomendable usar `{x,x}` siempre,
   debido a temas de compatibilidad.
 
 ### El operador '^' NOT
@@ -152,7 +152,7 @@ El operador NOT, sirve para negar la expresión de una clase, negar una clase de
 expresiones regulares significa que a partir de ese momento esa clase tomara
 cualquier carácter excepto los que estén definidos en la clase.
 
-Para negar una clase debemos usar el carácter reservado '^' dentro de una clase,
+Para negar una clase debemos usar el carácter reservado `^` dentro de una clase,
 es decir dentro de los corchetes, esto es debido a que este carácter posee otras
 características si este se encuentra fuera de una clase.
 
@@ -167,7 +167,7 @@ encuentre entre el rango de números del 0 al 5.
 
 ### Inicio '^' y final '$' de linea
 
-El carácter '^' marca el inicio de la linea por lo que se puede usar para indicar
+El carácter `^` marca el inicio de la linea por lo que se puede usar para indicar
 una clase que debe ir al principio de una linea de la siguiente manera:
 
 ```regex
@@ -176,15 +176,15 @@ una clase que debe ir al principio de una linea de la siguiente manera:
 
 Esta expresión indica que la linea debe empezar por 4 dígitos.
 
-por otra parte el carácter '$' indica el final de linea por lo que se puede
+por otra parte el carácter `$` indica el final de linea por lo que se puede
 utilizar para expresar como debe ser el final de una linea.
 
 ```regex
 [abcd]$
 ```
 
-Esta expresión indica que la linea debe finalizar con uno de los caracteres 'a',
-'b', 'c' ó 'd'.
+Esta expresión indica que la linea debe finalizar con uno de los caracteres `a`,
+`b`, `c` ó `d`.
 
 Si usamos las 2 expresiones en combinación podemos indicar expresiones para
 evaluar lineas completas, esto se puede realizar colocando una expresión regular
@@ -196,17 +196,17 @@ entre los símbolos de la siguiente manera, por ejemplo:
 
 Esta expresión regular evaluá una cadena como valida si una linea empieza por al
 menos un dígito, ninguna ó una palabra y si finaliza con alguno de los caracteres
-'a', 'b', 'c' ó 'd'.
+`a`, `b`, `c` ó `d`.
 
 ## Casos especiales
 
 ### El caso de '?' como delimitador
 
-Cuando se usa el símbolo '?' después de un delimitador este modifica el
+Cuando se usa el símbolo `?` después de un delimitador este modifica el
 comportamiento por defecto de las expresiones regulares. Por defecto las
 expresiones regulares siempre trataran de abarcar la coincidencia mas grande
 posible, sin embargo esto puede no ser algo deseado y para omitir este
-comportamiento por defecto utilizamos el carácter '?', por ejemplo:
+comportamiento por defecto utilizamos el carácter `?`, por ejemplo:
 
 ```regex
 .+,
@@ -223,5 +223,5 @@ Si tenemos el siguiente texto:
 En el primer caso la expresión regular validara la linea 1 hasta el elemento
 'csv4,', entonces simplemente tendremos una coincidencia para casi toda la linea,
 en el segundo caso tenemos validaciones individuales para cada elemento. De esto
-podemos observar que el carácter '?' fuerza a que las expresiones regulares sean
+podemos observar que el carácter `?` fuerza a que las expresiones regulares sean
 lo mas pequeñas posibles.

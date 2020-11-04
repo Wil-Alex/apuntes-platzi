@@ -39,7 +39,7 @@ El apuntador HEAD marca el estado de los archivos en disco actualmente, es decir
 apunta al commit en el que nos encontramos actualmente.
 
 Si queremos que git no rastree algún tipo de archivo podemos indicarlo en un
-archivo llamado '.gitignore', por ejemplo:
+archivo llamado `.gitignore`, por ejemplo:
 
 ```gitignore
 .env
@@ -118,9 +118,9 @@ git reset # Ambas son equivalentes
 git reset --hard # Regresar a un commit anterior, limpiar el stage, y borrar el working directory
 ```
 
-Si queremos reconstruir un commit que ya fue registrado podemos usar 'amend', sin
+Si queremos reconstruir un commit que ya fue registrado podemos usar `amend`, sin
 embargo esto no debe usarse para commit que ya están en remoto, unicamente para
-realizar correcciones en local, para hacer un 'amend' hacemos:
+realizar correcciones en local, para hacer un `amend` hacemos:
 
 ```bash
 git add . # Añadimos los cambios que queremos agregar
@@ -130,8 +130,8 @@ git commit --amend --no-edit # Aplicamos los cambios al ultimo commit pero no ca
 
 ### Diferencias entre rm y reset
 
-La operación 'reset' simplemente deshace los cambios en los lugares que
-corresponda según las opciones que se le pasen, a diferencia de 'rm' que registra
+La operación `reset` simplemente deshace los cambios en los lugares que
+corresponda según las opciones que se le pasen, a diferencia de `rm` que registra
 la operación de borrado en la base de datos.
 
 ### Analizar archivos y cambios en git
@@ -149,7 +149,7 @@ git diff [ANTIGUO] [NUEVO] # Muestra todos los cambios entre los 2 commit, es im
 git log --stat # El modificador 'stat' muestra información mas detallada de los cambios
 ```
 
-También podemos crear nuestro propio comando de 'log' personalizado usando:
+También podemos crear nuestro propio comando de `log` personalizado usando:
 
 ```bash
 git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
@@ -174,7 +174,7 @@ movernos a otra rama o a otro commit, git nos devolverá un error, esto es porqu
 cuando cambiamos a otra rama o commit, movemos nuestro HEAD y por lo tanto
 nuestro directorio de trabajo, por lo que perderíamos nuestros cambios, para
 solucionar esto podemos guardar nuestros cambios de manera temporal con una
-herramienta de git llamada 'stash', de esta forma:
+herramienta de git llamada `stash`, de esta forma:
 
 ```bash
 git stash # Guarda de manera temporal los cambios que tengo y regresa el directorio al ultimo commit
@@ -190,8 +190,8 @@ git stash clear # Borra todos los stash
 Con git podemos traer commit específicos de otras ramas o commit antiguos de la
 misma rama a el final de la rama actual, esto se hace con la herramienta
 'cherry-pick', sin embargo esto es una mala practica dado que esto re-escribe la
-historia del proyecto, por lo que es mejor utilizar 'checkout' o 'merge' para
-realizar estas operaciones, 'cherry-pick' se usa de esta manera:
+historia del proyecto, por lo que es mejor utilizar `checkout` o `merge` para
+realizar estas operaciones, `cherry-pick` se usa de esta manera:
 
 ```bash
 git checkout [RAMA] # Nos ubicamos en la rama que recibirá el commit
@@ -238,7 +238,7 @@ git branch -D [NOMBRE DE LA RAMA] # Elimina la rama
 Cuando nos movemos entre ramas lo que sucede es que HEAD apunta a un commit que
 se encuentra en otra rama, por defecto se mueve al commit mas reciente que exista.
 
-Es importante notar que el comando 'checkout' mueve el apuntador HEAD y por lo
+Es importante notar que el comando `checkout` mueve el apuntador HEAD y por lo
 tanto el directorio de trabajo a otro commit, debido a esto si realizamos un
 checkout y tenemos cambios que no han sido registrados, perderemos estos cambios,
 debido a esto checkout nos informara cuando sea ese el caso y nos pedirá que
@@ -267,12 +267,12 @@ git merge [OTRA RAMA] # Trae los cambios de la otra rama
 ```
 
 Cuando realizamos la fusión se crea un commit nuevo en la rama que recibe los
-cambios, en ese caso 'master' y luego en ese commit combina los cambios de la
+cambios, en ese caso `master` y luego en ese commit combina los cambios de la
 otra rama con la rama actual.
 
 Durante la fusión puede darse el caso que una misma linea en un archivo haya sido
 modificada en las 2 ramas, esto se llama un conflicto, cuando tengamos un
-conflicto, 'git merge' nos informara de la siguiente manera:
+conflicto, `git merge` nos informara de la siguiente manera:
 
 ```text
 Auto-fusionando [ARCHIVO]
@@ -290,9 +290,9 @@ hola mundo, soy la primera linea
 >>>>>> test_1
 ```
 
-La linea que esta después de HEAD y antes de los símbolos '=' corresponde al
+La linea que esta después de HEAD y antes de los símbolos `=` corresponde al
 estado del archivo de la rama que recibe el merge, y la linea que esta después de
-los símbolos '=' corresponde al estado del archivo en la rama de la que estamos
+los símbolos `=` corresponde al estado del archivo en la rama de la que estamos
 recibiendo el merge. Para resolver el conflicto simplemente borramos las lineas
 que no queramos en el archivo, incluyendo los símbolos del conflicto y enviamos
 un commit con los conflictos resueltos.
@@ -348,8 +348,8 @@ git pull origin [rama] # Trae los datos de una rama remota especifica
 git pull origin master --allow-unrelated-histories # Permite traer un historial no relacionados a mi repositorio local
 ```
 
-Es una buena practica antes de enviar cualquier cambio con 'push' al repositorio
-remoto, traer cualquier cambio que pudo haber ocurrido con 'pull'.
+Es una buena practica antes de enviar cualquier cambio con `push` al repositorio
+remoto, traer cualquier cambio que pudo haber ocurrido con `pull`.
 
 Si queremos ver las URL a las que apunta los push y fetch de nuestro repositorio
 local podemos utilizar el comando:

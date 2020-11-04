@@ -147,7 +147,7 @@ rmdir [DIRECTORIO] # Elimina el directorio, solo funciona si el directorio esta 
 
 ### Variaciones del comando 'ls'
 
-El comando 'ls' permite mostrar los archivos y directorios que están dentro de mi
+El comando `ls` permite mostrar los archivos y directorios que están dentro de mi
 ubicación actual, este comando permite diversas opciones para mostrar los
 archivos, estas opciones son:
 
@@ -233,7 +233,7 @@ Cuando trabajamos con archivos a veces es util comprimir archivos o directorios
 para poder enviarlos por la red, podemos hacer todas estas operaciones desde la
 terminal.
 
-Para comprimir archivos individuales podemos usar la herramienta 'gzip' de la
+Para comprimir archivos individuales podemos usar la herramienta `gzip` de la
 siguiente manera:
 
 ```bash
@@ -241,9 +241,9 @@ gzip [ARCHIVO] # Comprimir un archivo
 gzip -d [ARCHIVO] # Descomprimir un archivo
 ```
 
-La herramienta 'gzip' unicamente puede comprimir un archivo, por lo que no nos es
+La herramienta `gzip` unicamente puede comprimir un archivo, por lo que no nos es
 util para comprimir directorios, para hacer esto tenemos que empaquetar los
-directorios en un archivo y para eso usamos la herramienta 'tar', de esta forma:
+directorios en un archivo y para eso usamos la herramienta `tar`, de esta forma:
 
 ```bash
 tar cf [ARCHIVO TAR] [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Empaquetar archivos en un archivo tar
@@ -251,8 +251,8 @@ tar cf [ARCHIVO TAR] [DIRECTORIO] # Empaquetar un directorio
 tar xf [ARCHIVO TAR] # Extrae los archivos de un archivo tar
 ```
 
-La herramienta 'tar' solo empaqueta los archivos en uno solo, sin embargo podemos
-combinarla con 'gzip' para comprimir el archivo 'tar' de esta forma:
+La herramienta `tar` solo empaqueta los archivos en uno solo, sin embargo podemos
+combinarla con `gzip` para comprimir el archivo `tar` de esta forma:
 
 ```bash
 tar czf [ARCHIVO TAR] [ARCHIVO 1] [ARCHIVO 2] ... [ARCHIVO] # Comprimir varios archivos
@@ -295,7 +295,7 @@ echo < archivo.txt # Envía como entrada al comando el texto del archivo
 ```
 
 También podemos en lugar de enviar y leer archivos, desviar los flujos estándar a
-otros procesos utilizando los pipes '|':
+otros procesos utilizando los pipes `|`:
 
 ```bash
 cat archivo.txt | head -n 15 | grep -EP "texto" # Esto envía la salida del primer comando a la entrada del segundo y de ahi al tercer comando
@@ -311,7 +311,7 @@ podemos hacer de la siguiente manera:
 [COMANDO] & # El símbolo '&' después del comando indica que sera ejecutado en segundo plano
 ```
 
-También podemos pausar un comando con las teclas ctrl + Z, y el comando 'fg' para
+También podemos pausar un comando con las teclas ctrl + Z, y el comando `fg` para
 recuperar la ejecución posteriormente.
 
 Para administrar procesos utilizamos los comandos:
@@ -350,7 +350,7 @@ wget [URL] # Descargar archivo desde esa url
 ### SSH
 
 También podemos conectarnos a dispositivos remotos a través de la terminal con
-la herramienta 'ssh' (Secure Shell), para ello antes debemos generar un par de
+la herramienta `ssh` (Secure Shell), para ello antes debemos generar un par de
 claves que nos servirán para hacer la conexión, para esto ejecutamos:
 
 ```bash
@@ -384,14 +384,14 @@ que queremos programar tareas para que se ejecuten en un tiempo determinado ó
 en periodos establecidos.
 
 Si queremos establecer una tarea para que se ejecute dentro de un tiempo
-especifico, utilizamos la herramienta 'at' de esta manera:
+especifico, utilizamos la herramienta `at` de esta manera:
 
 ```bash
 [COMANDO] | at now +[n] [TIME UNIT] # Indica que una tarea se ejecuta en n TIME UNITS (ej. 2 minutes, 3 hours, etc.)
 ```
 
 Si en cambio queremos definir que una tarea se ejecute en un periodo especifico
-de tiempo usamos la herramienta 'crontab' para editar un archivo con todas las
+de tiempo usamos la herramienta `crontab` para editar un archivo con todas las
 tareas programadas, para hacer esto ejecutamos:
 
 ```bash

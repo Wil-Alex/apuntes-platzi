@@ -13,21 +13,21 @@ elementos se colocan en el HTML.
 
 ![Display](https://static.platzi.com/media/user_upload/04.%20Displays%20simples-49be1b53-ae5c-42d5-8142-30d54adb4345.jpg)
 
-- El display 'block' indica que el elemento intentara abarcar todo el ancho
-  posible, a este display le podemos manipular el 'margin' y el 'padding' en las 4
-  direcciones, el elemento 'div' es de este tipo.
-- El display 'inline' no ocupa todo el ancho posible, solamente intenta abarcar
+- El display `block` indica que el elemento intentara abarcar todo el ancho
+  posible, a este display le podemos manipular el `margin` y el `padding` en las 4
+  direcciones, el elemento `div` es de este tipo.
+- El display `inline` no ocupa todo el ancho posible, solamente intenta abarcar
   el tamaño que requiera el contenido, por lo que permite posicionar otros
-  elementos al lado de el, no se puede manipular el 'margin' y el 'padding' en la
+  elementos al lado de el, no se puede manipular el `margin` y el `padding` en la
   dirección de arriba y abajo, tampoco se puede utilizar el width o el height.
-- El display 'inline-block' permite manipular los elementos de manera que se
-  posicionan automáticamente como los elementos 'inline' pero permite manipular
-  las propiedades de manera similar a los elemento 'block', es decir no ocupa
+- El display `inline-block` permite manipular los elementos de manera que se
+  posicionan automáticamente como los elementos `inline` pero permite manipular
+  las propiedades de manera similar a los elemento `block`, es decir no ocupa
   todo el espacio y ademas permite manipular el margin, padding, height y width.
 
 ## Display flex
 
-Cuando aplicamos el 'display flex' a un elemento, hace que sus elementos hijos
+Cuando aplicamos el `display: flex` a un elemento, hace que sus elementos hijos
 se comporten de manera flexible, podemos modificar el comportamiento de la
 siguiente manera:
 
@@ -68,13 +68,13 @@ siguiente manera:
 
 - **'flex-basis'**: Esto permite que los elementos tengan un tamaño base.
 
-Es importante notar que cuando utilizamos 'flex-direction' en 'column' las
-propiedades de 'justify-content' y 'align-items' invierten sus funciones, de la
-misma manera cuando utilizamos las variantes 'reverse' invertimos el orden en el
-que funcionan las reglas 'flex-start' y 'flex-end'.
+Es importante notar que cuando utilizamos `flex-direction` en `column` las
+propiedades de `justify-content` y `align-items` invierten sus funciones, de la
+misma manera cuando utilizamos las variantes `reverse` invertimos el orden en el
+que funcionan las reglas `flex-start` y `flex-end`.
 
 Existe la propiedad **'align-self'** que sirve para alinear un elemento en
-especifico dentro de un contenedor que tiene el display 'flex', es importante
+especifico dentro de un contenedor que tiene el display `flex`, es importante
 notar que esta regla se aplica al elemento que se quiere posicionar y no al
 elemento que lo contiene.
 
@@ -150,8 +150,8 @@ menos 3 tamaños de imágenes distintas.
 </picture>
 ```
 
-cuando utilizamos imágenes lo mas recomendable es utilizar el elemento 'figure'
-para que contenga al elemento 'picture' y le damos el tamaño al elemento 'figure'
+cuando utilizamos imágenes lo mas recomendable es utilizar el elemento `figure`
+para que contenga al elemento `picture` y le damos el tamaño al elemento `figure`
 mientras que a la imagen se le da el tamaño de 100% para que se adapte de manera
 automatica a las dimensiones del contenedor.
 

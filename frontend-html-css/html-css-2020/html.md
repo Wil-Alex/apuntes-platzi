@@ -107,11 +107,11 @@ estructura básica es:
 
 - **'!DOCTYPE html'**: Esta linea indica que se usara la versión 5 del estándar
   HTML (HTML5)
-- **'html lang="es"'**: El atributo 'lang' indica el idioma en el que esta
-  escrito un sitio web y en este caso esta configurado como 'es: español'
+- **'html lang="es"'**: El atributo `lang` indica el idioma en el que esta
+  escrito un sitio web y en este caso esta configurado como `es: español`
 
 El servidor a la hora de intentar mostrar un sitio web siempre tratara de buscar
-y encontrar un archivo llamado 'index', el cual corresponde a la pagina principal
+y encontrar un archivo llamado `index`, el cual corresponde a la pagina principal
 de un sitio web.
 
 ![Estructura de un sitio web](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2817%29-f08bb2df-26d7-4221-aebc-c84dd0b015e1.jpg)
@@ -120,7 +120,7 @@ de un sitio web.
 
 ### El head del sitio web
 
-Dentro de los sitios web existe un elemento llamado 'head' el cual contiene los
+Dentro de los sitios web existe un elemento llamado `head` el cual contiene los
 meta-datos y otra información importante que el proyecto requiere para funcionar
 correctamente pero que no debe ser visible para el usuario, por ejemplo: scripts,
 hojas de estilos y meta-datos, normalmente la estructura de un head es similar a
@@ -138,10 +138,10 @@ esta:
 
 Descripción:
 
-- **'meta charset="UTF-8"'**: El elemento meta con el atributo 'charset' indica
-  el juego de caracteres que usa el proyecto, en este caso utiliza 'UTF-8'
+- **'meta charset="UTF-8"'**: El elemento meta con el atributo `charset` indica
+  el juego de caracteres que usa el proyecto, en este caso utiliza `UTF-8`
 - **'meta name="viewport" content="width=device-width, initial-scale=1.0"'**: El
-  elemento meta con el atributo 'name="viewport"' indica como debe comportarse el
+  elemento meta con el atributo `name="viewport"` indica como debe comportarse el
   ancho de la pantalla, esto permite escalar correctamente el zoom en un
   dispositivo movil, por lo que es util para el Responsive Web Design.
 - **'meta name="description" content="desc"'**: Este elemento configura la
@@ -150,8 +150,8 @@ Descripción:
 - **'title'**: Indica el titulo del documento y es lo que se muestra en la
   pestaña cuando visualizamos nuestro sitio en el navegador.
 - **'link rel="stylesheet" href="style.css"'**: Esta linea enlaza un archivo
-  externo al sitio web, en este caso el atributo 'rel="stylesheet"' indica que el
-  archivo a enlazar es una hoja de estilos y el atributo 'href' indica la
+  externo al sitio web, en este caso el atributo `rel="stylesheet"` indica que el
+  archivo a enlazar es una hoja de estilos y el atributo `href` indica la
   ubicación del archivo.
 
 ### El body del sitio web
@@ -187,7 +187,7 @@ Ejemplos de elementos de contenido:
 - **p**: Párrafo.
 - **h1,h2,...,h6**: Elementos de encabezado, para títulos de un sitio web.
 - **a**: Elemento de ancla, para crear enlaces, el atributo 'target="_blank"",
-  indica que el enlace se abrirá en otra pestaña y el atributo 'href="#"', hace
+  indica que el enlace se abrirá en otra pestaña y el atributo `href="#"`, hace
   referencia a la misma pagina e impide que se recargue al hacer click en el
   enlace.
   
@@ -227,8 +227,8 @@ Y también podemos descargar imágenes, vectores e iconos para nuestro sitio web
 - [Unsplash](https://unsplash.com/)
 - [Pexels](https://www.pexels.com/es-es/)
 
-Para insertar imágenes dentro de nuestro web utilizaremos el elemento 'img' para
-indicar la ubicación de la imagen con el atributo 'href' y usaremos el elemento
+Para insertar imágenes dentro de nuestro web utilizaremos el elemento `img` para
+indicar la ubicación de la imagen con el atributo `href` y usaremos el elemento
 'figure' que sirve como contenedor para las imágenes, usaremos esto de esta
 manera:
 
@@ -242,14 +242,14 @@ manera:
 Descripción:
 
 - **'figure'**: Este elemento contenedor contiene la imagen y nos sirve para
-  posicionar la imagen y re-dimensionar la imagen, se podría usar 'div' para esta
-  función pero es recomendable usar 'figure' para darle sentido semántico.
+  posicionar la imagen y re-dimensionar la imagen, se podría usar `div` para esta
+  función pero es recomendable usar `figure` para darle sentido semántico.
 - **'img'**: Este elemento permite insertar la imagen y utiliza los atributos
-  'href' para indicar la ubicación de la imagen y 'alt' para poner la descripción
+  `href` para indicar la ubicación de la imagen y `alt` para poner la descripción
   de la imagen que se muestra en caso de que no se pueda cargar la imagen.
 - **'figcaption'**: Este elemento dentro de figure permite describir la imagén
-  contenida dentro del 'figure', para esto se podría usar un elemento 'p', pero
-  es recomendable usar siempre 'figcaption' para darle sentido semantico al sitio.
+  contenida dentro del `figure`, para esto se podría usar un elemento `p`, pero
+  es recomendable usar siempre `figcaption` para darle sentido semantico al sitio.
 
 ### Video
 
@@ -274,12 +274,12 @@ la segunda forma podemos insertar un video en varios formatos distintos, esto es
 util para compatibilidad ya que el navegador podrá escoger el formato adecuado
 que sea capaz de reproducirlo, el orden de prioridad es de arriba hacia abajo.
 
-La etiqueta 'video' permite introducir un video al sitio web, utilizando el
-atributo 'src' para indicar la ubicación del archivo de video, 'preload="auto"',
+La etiqueta `video` permite introducir un video al sitio web, utilizando el
+atributo `src` para indicar la ubicación del archivo de video, `preload="auto"`,
 indica que el video se comenzara a descargar (no reproducir) automáticamente,
-y el atributo 'controls' activa los controles de reproducción.
+y el atributo `controls` activa los controles de reproducción.
 
-Si usamos la etiqueta 'source' dentro de una etiqueta video, podemos agregar
+Si usamos la etiqueta `source` dentro de una etiqueta video, podemos agregar
 varias ubicaciones de donde descargara el archivo.
 
 También podemos indicar que un video se reproduzca automáticamente al cargarse,
@@ -304,9 +304,9 @@ Los formularios son la manera en la que interactuamos con el usuario.
 
 > "El mejor formulario es el que no existe."
 
-La manera correcta de crear formularios es utilizando la etiqueta 'form', aunque
-es posible crear formularios dentro de un 'div' lo ideas es utilizar 'form' para
-darle sentido semántico al sitio, las etiquetas 'input' siempre deben ir dentro
+La manera correcta de crear formularios es utilizando la etiqueta `form`, aunque
+es posible crear formularios dentro de un `div` lo ideas es utilizar `form` para
+darle sentido semántico al sitio, las etiquetas `input` siempre deben ir dentro
 de un contenedor.
 
 ```html
@@ -329,30 +329,30 @@ de un contenedor.
 Descripción:
 
 - **'form'**: Este elemento es un contenedor para los elementos del formulario,
-  posee el atributo 'action', donde podemos indicar el endpoint o acción a
+  posee el atributo `action`, donde podemos indicar el endpoint o acción a
   realizar con los datos que estamos capturando con el formulario.
-- **'label'**: Este elemento sirve para etiquetar un elemento 'input' con un
-  texto, es util para la accesibilidad del sitio, el atributo 'for' debe de ser
-  igual al atributo 'id' de su 'input' asociado.
+- **'label'**: Este elemento sirve para etiquetar un elemento `input` con un
+  texto, es util para la accesibilidad del sitio, el atributo `for` debe de ser
+  igual al atributo `id` de su `input` asociado.
 - **'span'**: Elemento para contener un texto, en este caso el texto con lo que
   estamos preguntando al usuario.
 - **'input'**: Elemento del formulario con el que podemos interactuar, su
-  atributo 'type' indica que tipo de datos puede recibir, el atributo 'id' debe
-  coincidir con el 'for' de su 'label' asociado, esto identifica el elemento,
-  y el atributo 'placeholder' que muestra un texto atenuado en los formularios
-  que reciben texto, el atributo 'name' sirve para identificar el elemento en el
+  atributo `type` indica que tipo de datos puede recibir, el atributo `id` debe
+  coincidir con el `for` de su `label` asociado, esto identifica el elemento,
+  y el atributo `placeholder` que muestra un texto atenuado en los formularios
+  que reciben texto, el atributo `name` sirve para identificar el elemento en el
   servidor,
 
 [Lista de 'types' disponible para 'input'](https://www.w3schools.com/html/html_form_input_types.asp)
 
 [Input - MDN](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input)
 
-Para poder enviar los datos de un formulario debemos usar el atributo 'name' para
-identificar dichos datos, ademas tenemos el 'input' de tipo 'submit' en cual nos
+Para poder enviar los datos de un formulario debemos usar el atributo `name` para
+identificar dichos datos, ademas tenemos el `input` de tipo `submit` en cual nos
 permite enviar los datos.
 
-El 'input' de tipo 'submit' nos permite enviar nuestros datos, funciona como un
-botón, también tenemos el 'input' de tipo 'datetime-local' nos permite en el
+El `input` de tipo `submit` nos permite enviar nuestros datos, funciona como un
+botón, también tenemos el `input` de tipo `datetime-local` nos permite en el
 mismo formulario preguntar una fecha y una hora.
 
 Ejemplo:
@@ -367,7 +367,7 @@ Ejemplo:
 </form>
 ```
 
-Dentro de HTML existen 2 tipos de botones, estos son 'button' e 'input type="submit"',
+Dentro de HTML existen 2 tipos de botones, estos son `button` e `input type="submit"`,
 el primero se usa en cualquier contexto y el segundo solo en formularios
 
 ```html
@@ -382,9 +382,9 @@ el primero se usa en cualquier contexto y el segundo solo en formularios
 
 ### Auto-completado y required
 
-HTML nos proporciona en los elementos 'input' herramientas de auto-completado,
+HTML nos proporciona en los elementos `input` herramientas de auto-completado,
 las cuales nos intentan dar sugerencias de posible datos que podemos llenar en
-esos campos, para activar esta función utilizamos el atributo 'autocomplete' al
+esos campos, para activar esta función utilizamos el atributo `autocomplete` al
 cual le pasamos un valor, el cual indica que tipo de dato debe intentar completar.
 
 [Valores para autocomplete](https://developer.mozilla.org/es/docs/Web/HTML/Atributos/autocomplete)
@@ -442,7 +442,7 @@ un error en caso de que el campo no este rellenado.
 ### Elemento 'select'
 
 Si queremos habilitar la opción de que el usuario pueda seleccionar una opción
-entre muchas otras podemos usar el elemento 'select', esto nos permite indicarle
+entre muchas otras podemos usar el elemento `select`, esto nos permite indicarle
 al usuario cuales son las opciones que tiene disponible, se hace de la siguiente
 forma:
 
@@ -458,11 +458,11 @@ forma:
 Descripción:
 
 - **'select name="" id=""'**: Esta linea indica que estamos trabajando con un
-  elemento select, con el atributo 'name' le damos una identificación en el
-  servidor y el atributo 'id' nos permite acceder a ese elemento desde el
+  elemento select, con el atributo `name` le damos una identificación en el
+  servidor y el atributo `id` nos permite acceder a ese elemento desde el
   frontend.
 - **'option value=""'**: Este elemento nos permite indicar un item dentro
-  del 'select', su atributo 'value' es el que sera enviado al servidor, mientras
+  del `select`, su atributo `value` es el que sera enviado al servidor, mientras
   que lo que este dentro de su contenido es lo que se mostrara al usuario.
 
 Esta es la forma normal de hacer un select, sin embargo puede no ser muy util si
@@ -483,37 +483,37 @@ forma:
 Descripción:
 
 - **'input list="cursos"'**: Este elemento define el elemento select, y en lugar
-  de tener un 'id' tiene el atributo 'list' el cual debe apuntar a un 'id' de un
-  elemento 'datalist', el cual contiene la lista de elementos para el 'select',
+  de tener un `id` tiene el atributo `list` el cual debe apuntar a un `id` de un
+  elemento `datalist`, el cual contiene la lista de elementos para el `select`,
   esto permite escribir en el input y el navegador filtrara los datos mientras
   escribimos.
-- **'datalist id="cursos"'**: Este elemento contiene elementos 'option' con las
-  opciones que puede contener el 'select', su 'id' sirve para vincularse a un
-  'input' con el atributo 'list'.
-- **'option value=""'**: Este elemento define una opción para el 'select'.
+- **'datalist id="cursos"'**: Este elemento contiene elementos `option` con las
+  opciones que puede contener el `select`, su `id` sirve para vincularse a un
+  `input` con el atributo `list`.
+- **'option value=""'**: Este elemento define una opción para el `select`.
 
 ## Accesibilidad
 
 La semántica nos permite crear productos que puedan ser utilizados por personas
 con algún tipo de discapacidad, la semántica nos permite indicar en que parte del
-contenido estamos, por ejemplo: 'header' -> Cabecera, 'main' -> Parte principal y
+contenido estamos, por ejemplo: `header` -> Cabecera, `main` -> Parte principal y
 'footer' -> Pie de pagina.
 
 Es recomendable aplicar semántica lo mas que se pueda evitando utilizar elementos
-de tipo 'div', excepto cuando se requiera para diseñar el sitio web.
+de tipo `div`, excepto cuando se requiera para diseñar el sitio web.
 
 Es recomendable utilizar siempre medias relativas para el texto en lugar de usar
 medidas absolutas, esto permite escalar el tamaño del texto si es necesario.
 
-La etiqueta 'label' sirve para contener elementos 'input', el elemento 'label'
-tiene un atributo 'for' que debe coincidir con el atributo 'id' del elemento
-'input', esto permite que al hacer click en el 'label' ya puedo empezar a
-ingresar información en el 'input', esto permite indicarle a los programas de
+La etiqueta `label` sirve para contener elementos `input`, el elemento `label`
+tiene un atributo `for` que debe coincidir con el atributo `id` del elemento
+'input', esto permite que al hacer click en el `label` ya puedo empezar a
+ingresar información en el `input`, esto permite indicarle a los programas de
 accesibilidad cuales son los input asociados a un texto.
 
-El atributo 'alt' indica a los software de lectura de pantalla cual es la
+El atributo `alt` indica a los software de lectura de pantalla cual es la
 descripción de la imagen a la que esta apuntando, también se muestra en caso de
 que el contenido no pueda cargarse.
 
-El atributo 'title' indica el texto que muestra un elemento cuando colocamos el
+El atributo `title` indica el texto que muestra un elemento cuando colocamos el
 puntero del ratón encima de el.

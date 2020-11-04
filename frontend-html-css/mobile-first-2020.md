@@ -2,7 +2,7 @@
 
 - [Maquetación Mobile First](#maquetación-mobile-first)
   - [Setup inicial](#setup-inicial)
-  - [Diseño del sitio We](#diseño-del-sitio-we)
+  - [Diseño del sitio Web](#diseño-del-sitio-web)
     - [Estándar BEM](#estándar-bem)
     - [CSS](#css)
     - [Elemento flotante](#elemento-flotante)
@@ -44,7 +44,7 @@ vamos a declarar nuestras reglas de CSS, el orden recomendado es:
 4. Estilos visuales: border-radius, shadow, etc.
 5. Otros.
 
-Lo primero que vamos a declarar en la hoja de estilos va a ser el elemento ':root'
+Lo primero que vamos a declarar en la hoja de estilos va a ser el elemento `:root`
 el cual va a contener todas las variables que vamos a usar en el documento, esto
 se hace de esta manera:
 
@@ -63,22 +63,22 @@ se hace de esta manera:
 ```
 
 Si un estilo de fuente es usado en la mayor parte del proyecto lo podemos colocar
-en el elemento 'html' y sobre-escribir la propiedad en los elementos individuales
+en el elemento `html` y sobre-escribir la propiedad en los elementos individuales
 cuando sea requerido, es importante no usar una gran cantidad de tipografías, ya
 que esto afecta al rendimiento de la pagina, debemos procurar solo traer la menor
 cantidad de fuentes y variantes posibles, asi mismo limitar la cantidad de tipos
 de fuente a 2.
 
-## Diseño del sitio We
+## Diseño del sitio Web
 
 ### Estándar BEM
 
-Por motivos de SEO un sitio web solamente puede tener 1 elemento 'h1', el cual
-debe estar ubicado en la sección de 'header'.
+Por motivos de SEO un sitio web solamente puede tener 1 elemento `h1`, el cual
+debe estar ubicado en la sección de `header`.
 
 Cuando necesitamos colocar elementos al lado de textos, que pueden estar a su vez
-dentro de otra etiqueta podemos usar el elemento 'span' ya que este utiliza por
-defecto el display 'inline', por ejemplo:
+dentro de otra etiqueta podemos usar el elemento `span` ya que este utiliza por
+defecto el display `inline`, por ejemplo:
 
 ```html
 <a href="">Conoce Nuestros Planes <span>i</span> </a>
@@ -103,8 +103,12 @@ La metodologia BEM funciona basicamente asi:
 ### CSS
 
 Cuando utilizamos como ancho de un contenedor principal (header, main y footer)
-medidas relativas, lo mas recomendable es fijar un 'min-width' en 320px, esto es
+medidas relativas, lo mas recomendable es fijar un `min-width` en 320px, esto es
 porque esta medida es el tamaño de los dispositivos mas pequeños que existen.
+
+Asi mismo también si un elemento requiere tener una altura que cambie de forma
+dinámica, pero también requiera ser de un tamaño mínimo podemos fijar la altura
+como `min-height` para que escale a partir de ese tamaño base.
 
 ```css
 header {
@@ -118,7 +122,7 @@ header h1 {
 }
 ```
 
-Esta permitido colocar elementos 'section' dentro de otros elementos 'section' si
+Esta permitido colocar elementos `section` dentro de otros elementos `section` si
 es requerido por semántica.
 
 ### Elemento flotante
@@ -160,12 +164,17 @@ secciones.
   background-image: url('../assets/icons/down-arrow.svg'); /* Con url(), podemos
   indicar rutas dentro de nuestro proyecto */
 
-  /* Esto permite solucionar algunos bugs que puedan aparecer */
+  /* Esto permite solucionar algunos bugs que puedan aparecer, es recomendable
+  utilizarlo siempre que se introduzca una imagen como background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 ```
+
+Cuando usamos position `absolute` siempre va a buscar el elemento padre mas
+cercano que tenga una propiedad position en `relative`, por lo que es importante
+ver cual es ese elemento para evitar conflictos posteriormente.
 
 ### Tablas
 
@@ -200,8 +209,9 @@ de esta forma:
 
 .currency-table--container .table__top-left { /* Marca la celda superior izquierda */
   border-radius: 15px 0 0 0; /* Aplica el redondeado a esa celda */
+  border-top-left-radius: 15px; /* Esto es equivalente a lo anterior */
 }
 ```
 
-Esto se debe a que el elemento 'table' no es visual, por lo que no se le puede
+Esto se debe a que el elemento `table` no es visual, por lo que no se le puede
 modificar sus propiedades visuales.
