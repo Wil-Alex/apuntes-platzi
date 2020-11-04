@@ -321,7 +321,8 @@ en la que los elementos serán posicionados utilizando las reglas de CSS.
 Existen varios tipos de posicionamientos en CSS, los cuales son:
 
 - static (default)
-- absolute: Tiene una posición fija respecto a los otros elementos y puede ser
+- absolute: Tiene una posición fija respecto al elemento padre con `position:relative`
+  mas cercano o en su defecto al elemento raiz.
   movido de manera independiente a los otros elementos.
 - relative: Tiene una posición relativa a su elemento contenedor.
 - fixed
