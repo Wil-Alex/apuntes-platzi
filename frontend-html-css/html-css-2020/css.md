@@ -221,7 +221,7 @@ Todos estos selectores funcionan también con id's y clases de HTML.
 ## Pseudo-clases y Pseudo-elementos en CSS
 
 Dentro de CSS tenemos las llamadas pseudo-clases, las cuales sirven para indicar
-estados de los elementos dentro del documento, por ejemplo tenemos: 
+estados de los elementos dentro del documento, por ejemplo tenemos:
 
 ```css
 li:hover {
