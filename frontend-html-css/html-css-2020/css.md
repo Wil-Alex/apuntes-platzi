@@ -111,7 +111,7 @@ Cada uno de estos elementos tiene algunas propiedades por defecto, las cuales so
 
 Todos los elementos por defecto tienen algunas propiedades, podemos anularlas con
 el selector universal `*`, para aplicarle a todos los elementos un `padding` y
-'margin' de 0, ademas para que el tamaño de caja tome en cuenta el contenido, el
+`margin` de 0, ademas para que el tamaño de caja tome en cuenta el contenido, el
 relleno y el borde usamos la propiedad `box-sizing` en `border-box`, esta regla
 es importante ponerla en todos nuestros proyectos.
 
