@@ -326,8 +326,6 @@ footer {
 Dentro del navegador existen familias de fuentes genéricas, las cuales ya vienen
 por defecto en el navegador, estas son:
 
-- **serif**: Times New Roman, Georgia
-
 | **Genericas**  |       **Fuentes**        |
 | :------------: | :----------------------: |
 |   **serif**    | Times New Roman, Georgia |
@@ -341,7 +339,7 @@ Podemos buscar otras fuentes personalizada en:
 
 [Para encontrar pares de fuentes](https://fontpair.co/)
 
-Podemos seleeccionar fuentes en distintos 'weight', es decir en diferente formas,
+Podemos seleccionar fuentes en distintos 'weight', es decir en diferente formas,
 por ejemplo: *italic*, **bold**, light, medium, regular, etc. Para integrar estas
 fuentes a nuestro documento HTML, usamos:
 
