@@ -7,6 +7,8 @@
     - [CSS](#css)
     - [Elemento flotante](#elemento-flotante)
     - [Tablas](#tablas)
+    - [Scroll](#scroll)
+    - [Media Queries](#media-queries)
 
 ## Setup inicial
 
@@ -125,6 +127,9 @@ header h1 {
 Esta permitido colocar elementos `section` dentro de otros elementos `section` si
 es requerido por semántica.
 
+Para ver el estado de la implementación de un estándar Web podemos consultar esta
+pagina: [Can I Use](https://caniuse.com/)
+
 ### Elemento flotante
 
 Un elemento flotante es aquel que visualmente aparenta no estar dentro de ninguna
@@ -139,6 +144,8 @@ secciones.
   el 50% y le resta 114.5px, que es la mitad de la medida del elemento */
   box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16); /* Sirve para darle el efecto de
   sombra al elemento, para que tenga apariencia de flotabilidad */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16); /* box-shadow para elementos sobre
+  uun fondo oscuro */
 }
 /* Alternativamente */
 .header--title-container .header--button {
@@ -215,3 +222,52 @@ de esta forma:
 
 Esto se debe a que el elemento `table` no es visual, por lo que no se le puede
 modificar sus propiedades visuales.
+
+### Scroll
+
+Podemos implementar de manera nativa un scroll horizontal, unicamente utilizando
+CSS, para esto vamos a usar el siguiente código:
+
+```css
+.plans--card {
+  /* Diseñamos nuestra tarjeta para el slide */
+  margin: 50px 25px 0; /* El segundo valor indica el espacio entre cada tarjeta */
+  scroll-snap-align: center; /* Esto permite que el slide centre automáticamente
+  los elementos cuando movemos el slide */
+}
+
+.plans--slider {
+  display: flex; /* Usamos flex para que los elementos queden en horizontal */
+  height: 316px;
+  overflow-x: scroll; /* Define que acción realizar cuando el contenido se 
+  desborde de manera horizontal, en este caso aplica un 'scroll' */
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; /* Indica como el navegador debe tomar los
+  puntos de snap en un contenedor */
+  margin: 0 25px; /* Para tener los espacios en blanco en las tarjetas inicio y
+  final */
+}
+```
+
+### Media Queries
+
+Una vez que nuestro sitio web esta completado para una interfaz movil, podemos
+empezar a escalarlo a tamaños mas grandes, utilizando los media queries, podemos
+observar que al realizar el sitio mobile-first, realizar la transición a tamaños
+mayores es sumamente facil, por ejemplo:
+
+```css
+/* media: min-width: 768px */
+.product-cards--container {
+  display: flex; /* Cambia el comportamiento del contenedor a flex */
+  flex-wrap: wrap; /* Habilita wrap para poder visualizarlo a 2 columnas */
+  max-width: 1024px; /* Evita que el contenedor crezca demasiado */
+  margin: 0 auto; /* Lo mantiene centrado */
+}
+
+.plans--slider {
+  justify-content: center; /* Mantiene el slider centrado */
+  overflow-x: hidden; /* Oculta la barra de desplazamiento ya que no es necesaria */
+}
+
+```
