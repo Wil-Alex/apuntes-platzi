@@ -18,5 +18,5 @@
 
 ### Otros
 
-[![url--7](https://via.placeholder.com/336x35/035d33/fff?text=Mobile-first)](./frontend-html-css/mobile-first-2020.md)
+[![url--7](https://via.placeholder.com/336x35/035d33/fff?text=Mobile+first)](./frontend-html-css/mobile-first-2020.md)
 [![url--8](https://via.placeholder.com/336x35/035d33/fff?text=CSS+Grid+Layout)](./frontend-html-css/css-grid-layout.md)
