@@ -3,6 +3,8 @@
 - [CSS Grid Layout](#css-grid-layout)
   - [Fudamentales](#fudamentales)
   - [Filas y Columnas](#filas-y-columnas)
+  - [Unidades de medida de en Grid Layout](#unidades-de-medida-de-en-grid-layout)
+  - [Maquetar con Grid Layout](#maquetar-con-grid-layout)
 
 ## Fudamentales
 
@@ -117,6 +119,97 @@ contiene a los demás de esta forma:
   grid-gap: 10px 100px; /* Esto es equivalente */
 }
 ```
+
 [Grid Gap](https://cssreference.io/property/grid-gap/)
 
 ![grid-gap](https://static.platzi.com/media/user_upload/grid-gap-57fc0852-4be3-4a48-9f0d-54ecaa965cf5.jpg)
+
+## Unidades de medida de en Grid Layout
+
+Dentro de un contenedor que esta utilizando grid layout podemos usar una nueva
+unidad de medida, la fracción 'fr', la cual se puede usar de esta manera:
+
+```css
+.container {
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr; /* 1/4 y 1/3 */
+  grid-template: auto auto auto auto / auto auto auto; /* Distribuye el espacio en función del contenido */
+
+  grid-template: repeat(4,1fr) / repeat(3,1fr); /* repeat(cantidad, valor) */
+  grid-template: repeat(4,1fr) / repeat(3,minmax(200px,1fr)); /* minmax(min, max), es util para el responsive */
+
+}
+```
+
+## Maquetar con Grid Layout
+
+Tambien podemos usar grid para maquetar nuestro sitio web, utilizando solamente
+CSS:
+
+![Grid Area](https://static.platzi.com/media/user_upload/_D__fronted_grid-area_index.html-e3a6d006-2075-43a2-b7d6-f7f0f40695e5.jpg)
+
+```css
+.container {
+  display: grid;
+  grid-template: 20vh 1fr 20vh / 25vw 1fr; /* Crea la rejilla */
+  grid-gap: 10px;
+  height: 100vh;
+  grid-template-areas:  "header header"
+                        "left contenido"
+                        "footer footer"; /* Define que filas y columnas usa cada area */
+}
+
+.item {
+  background: cadetblue;
+  padding: 10px;
+  border: .2rem solid red;
+}
+
+.header {
+  grid-area: header; /* Hace que este elemento se vincule a 'header' */
+}
+.left {
+  grid-area: left; /* Hace que este elemento se vincule a 'left' */
+}
+.contenido {
+  grid-area: contenido; /* Hace que este elemento se vincule a 'contenido' */
+}
+.footer {
+  grid-area: footer; /* Hace que este elemento se vincule a 'footer' */
+}
+```
+
+Podemos definir cuantas celdas ocupara un elemento dentro de la grilla, usando
+las lineas divisoras que posee grid Layout, indicando cuantas columnas voy a usar
+asi como tambien las filas,de esta manera:
+
+```css
+.container {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+}
+
+.item {
+  background: cadetblue;
+  padding: 10px;
+  border: .2rem solid red;
+}
+
+.item:nth-of-type(1) {
+  background-color: blue;
+  grid-column-start: 1; /* Inicia en la linea 1 */
+  grid-column-end: 3; /* Finaliza en la linea 3 */
+  /* Importante que esta no indica las columnas de la grilla sino las lineas que las dividen */
+}
+
+.item:nth-of-type(8) {
+  grid-column: 1 / span 2; /* Forma abreviada: start/end */
+  /* span indica cuantas lineas mas adelante finaliza */
+  /* grid-row: funciona de la misma manera con filas */
+}
+
+.item:nth-of-type(7) {
+  grid-column: 1 / -1; /* Indica que va a iniciar en 1, y ocupara todas las lineas que pueda */
+  grid-column: -1 / 3; /* Cuando no sabemos donde vamos a iniciar y finaliza en la linea 3 */
+}
+```
