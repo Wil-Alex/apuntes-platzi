@@ -5,6 +5,9 @@
   - [Filas y Columnas](#filas-y-columnas)
   - [Unidades de medida de en Grid Layout](#unidades-de-medida-de-en-grid-layout)
   - [Maquetar con Grid Layout](#maquetar-con-grid-layout)
+    - [Celdas](#celdas)
+    - [Renombrar las lineas](#renombrar-las-lineas)
+    - [Alinear elementos](#alinear-elementos)
 
 ## Fudamentales
 
@@ -143,6 +146,8 @@ unidad de medida, la fracción 'fr', la cual se puede usar de esta manera:
 
 ## Maquetar con Grid Layout
 
+### Celdas
+
 Tambien podemos usar grid para maquetar nuestro sitio web, utilizando solamente
 CSS:
 
@@ -181,7 +186,7 @@ CSS:
 
 Podemos definir cuantas celdas ocupara un elemento dentro de la grilla, usando
 las lineas divisoras que posee grid Layout, indicando cuantas columnas voy a usar
-asi como tambien las filas,de esta manera:
+asi como también las filas,de esta manera:
 
 ```css
 .container {
@@ -213,3 +218,109 @@ asi como tambien las filas,de esta manera:
   grid-column: -1 / 3; /* Cuando no sabemos donde vamos a iniciar y finaliza en la linea 3 */
 }
 ```
+
+Para cambiar el flujo automático de mi grid:
+
+```css
+.container {
+  grid-auto-flow: column; /* Por defecto viene grid-auto-flow: row;*/
+}
+```
+
+Para asignar el valor por defecto de el espacio de las columnas o filas que no
+han sido asignadas:
+
+```css
+.container {
+  grid-auto-columns: 200px 300px; /* Todas las columnas que no hayan sido tomadas
+  en cuenta seran re-dimensionadas en un patrón 200 300 200 300 ...*/
+  grid-auto-rows: 100px 150px; /* Equivalente per para las filas */
+}
+```
+
+### Renombrar las lineas
+
+En CSS podemos renombrar las lineas (divisiones) dentro de nuestra grilla de tal
+manera que podemos llamarlas por su nombre cuando lo necesitemos en lugar de
+hacer referencia a las mismas utilizando números, esto se hace de esta forma:
+
+```css
+.container {
+  display: grid;
+  /* Los textos en '[]' representan las lineas y los elemento 'fr' representan
+  las columnas, de esta manera podemos nombrar nuestras lineas */
+  grid-template-columns: [inicio] 1fr 1fr [linea1] 1fr 1fr [linea2] 1fr [linea3] 1fr [final];
+  grid-template-rows: [inicio] 1fr 1fr [medio] 1fr [linea] 1fr [final];
+  height: 100vh;
+}
+
+.item {
+  background: cadetblue;
+  padding: 10px;
+  border: .2rem solid red;
+}
+
+.item:nth-of-type(1) {
+  background-color: brown;
+  grid-column: inicio / final; /* De esta forma llamamos a las lineas por el nombre
+  que hemos definido para ellas */
+  grid-row: inicio / medio;
+}
+
+.item:nth-of-type(2) {
+  background-color: crimson;
+  grid-column: inicio / linea1;
+  grid-row: medio / final;
+}
+
+.item:nth-of-type(3) {
+  background-color: darkblue;
+  grid-column: linea1 / linea2;
+  grid-row: medio / final;
+}
+
+.item:nth-of-type(4) {
+  background-color: darkgoldenrod;
+  grid-column: linea2 / final;
+  grid-row: medio / linea;
+}
+```
+
+### Alinear elementos
+
+Dentro de Grid layout podemos alinear el elemento respecto a la celda, para esto
+vamos a utilizar la propiedad `justify-items`, para alinear de manera horizontal
+y `align-items` para alinear de manera vertical, de esta forma:
+
+```css
+.container {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  height: 100vh;
+  grid-gap: 1rem;
+  justify-items: center; /* Por defecto, stretch: ocupa toda la celda */
+  align-items: center; /* Puede tomar los valores de: start, center o end */
+}
+
+/* También podemos alinear los elementos de manera individual utilizando
+'align-self' y 'justify-self' */
+
+.item:nth-of-type(5) {
+  align-self: start;
+  justify-self: start;
+}
+```
+
+[Grid Garden](https://cssgridgarden.com/#es)
+
+Para alinear el contenido de filas y columnas, podemos usar `justify-content`
+para alinear el contenido de manera horizontal, `align-content` para alinear el
+contenido de manera vertical, estas propiedades aceptan los valores `start`, `end`,
+`center` o `stretch`, tambien podemos distribuir el contenido de manera uniforme
+usando estos valores:
+
+- Con `space-around` Los items tienen el mismo espacio a su alrededor.
+- Con `space-evenly` Los items están distribuidos de manera homogénea.
+- Con `space-between` Distribuye el espacio entre items pero no en los extremos.
+
+![Alineación items](https://cdn-media-1.freecodecamp.org/images/0*9_DylWfIulrq5tTl.png)
