@@ -8,6 +8,7 @@
     - [Celdas](#celdas)
     - [Renombrar las lineas](#renombrar-las-lineas)
     - [Alinear elementos](#alinear-elementos)
+  - [Otros](#otros)
 
 ## Fudamentales
 
@@ -324,3 +325,37 @@ usando estos valores:
 - Con `space-between` Distribuye el espacio entre items pero no en los extremos.
 
 ![Alineación items](https://cdn-media-1.freecodecamp.org/images/0*9_DylWfIulrq5tTl.png)
+
+## Otros
+
+Si queremos que la cantidad de columnas se adapte al tamaño de la pantalla de
+nuestro dispositivo, podemos utilizar el valor `auto-fill` junto a la función
+`repeat`, de esta forma:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,250px); /* Indica de manera dinámica la
+  cantidad de columnas que va a utilizar según el ancho de la pantalla */
+}
+```
+
+Si no sabemos en que fila (o columna) va a iniciar un elemento, solamente
+debemos usar row-end, utilizando el valor 'span'.
+
+```css
+
+.level-1 {
+  grid-row-end: span 3; /* Ocupara 3 filas */
+  }
+
+.level-2 {
+  grid-row-end: span 2; /* Ocupara 2 filas */
+}
+
+.level-3 {
+  grid-row-end: span 1; /* Ocupara 1 filas */
+}
+```
+
+Nota: Dentro de los formularios no se heredan las fuentes.
