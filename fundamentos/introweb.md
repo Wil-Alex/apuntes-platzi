@@ -3,6 +3,7 @@
 - [Curso de Introducción a la Web](#curso-de-introducción-a-la-web)
   - [El lenguaje de la computadora](#el-lenguaje-de-la-computadora)
   - [Como funciona el internet](#como-funciona-el-internet)
+  - [Historia de la Web](#historia-de-la-web)
   - [Como funciona el navegador](#como-funciona-el-navegador)
 
 ## El lenguaje de la computadora
@@ -76,14 +77,29 @@ dirección IP con un string, el cual es el que utilizamos para conectarnos.
 
 ![DNS](https://static.platzi.com/media/user_upload/clase12_1_intro-74973d25-0de4-4e82-9e36-8ae3a54ae200.jpg)
 
-## Como funciona el navegador
+## Historia de la Web
 
-| Metodo HTTP |       Descripción       |
+La web fue creada por Tim Berners Lee en 1989, mientras trabajaba en el CERN,
+originalmente la web fue creada unicamente con 3 protocolos principales: HTML,
+URL y HTTP, basado en un modelo de Cliente-Servidor descentralizado.
+
+![Cliente-Servidor](https://secureservercdn.net/45.40.146.28/40b.bf6.myftpupload.com/wp-content/uploads/2015/01/http-protocolo-peticion.png)
+
+El protocolo HTTP, indica las operaciones que el cliente puede solicitar al
+servidor, estas operaciones son conocidas como 'métodos HTTP', los métodos
+principales son:
+
+| Método HTTP |       Descripción       |
 | :---------: | :---------------------: |
 |     GET     |     Solicita datos      |
 |    POST     |       Envía datos       |
 |     PUT     | Crea o reemplaza datos  |
 |   DELETE    | Borra datos específicos |
+
+La W3C es una organización que se encarga de definir los estándares que se usaran
+en la web, por ejemplo: HTML, CSS y JS, es necesaria la creación de estándares
+para que todos los navegadores sean compatibles entre si.
+## Como funciona el navegador
 
 Cuando nos conectamos a un sitio web, utilizamos una 'request HTTP', la cual nos
 regresa los datos que necesitamos para acceder al sitio web, después realiza
@@ -111,7 +127,6 @@ para procesar los archivos:
 3. Junta el DOM y el CSSOM creando el Render Tree
 
 ![Render TREE](https://static.platzi.com/media/user_upload/Screenshot%202020-11-18%20184035-354cf78d-d5ef-48eb-8c07-a034d133a1aa.jpg)
-
 
 Una vez el navegador tiene el Render Tree, posee a distribuir los elementos en el
 espacio de la pantalla, sin inyectar el contenido, usando lo que se conoce como
