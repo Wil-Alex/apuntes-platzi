@@ -99,6 +99,7 @@ principales son:
 La W3C es una organización que se encarga de definir los estándares que se usaran
 en la web, por ejemplo: HTML, CSS y JS, es necesaria la creación de estándares
 para que todos los navegadores sean compatibles entre si.
+
 ## Como funciona el navegador
 
 Cuando nos conectamos a un sitio web, utilizamos una 'request HTTP', la cual nos
