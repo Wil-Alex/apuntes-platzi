@@ -3,6 +3,7 @@
 - [Curso de Introducción a la Web](#curso-de-introducción-a-la-web)
   - [El lenguaje de la computadora](#el-lenguaje-de-la-computadora)
   - [Como funciona el internet](#como-funciona-el-internet)
+  - [Como funciona el navegador](#como-funciona-el-navegador)
 
 ## El lenguaje de la computadora
 
@@ -51,3 +52,80 @@ va desde 0 hasta 255.
 
 ## Como funciona el internet
 
+El internet es la red de cables que nos permiten conectar distintas computadoras,
+nace del proyecto ARPANET, la cual originalmente conectaba 4 universidades, la
+mayoría de los cables de internet pasan por cable sub-marinos.
+
+[Cables Sub-marinos de internet](https://www.submarinecablemap.com/)
+
+Para comunicar la información en internet utilizamos los protocolos, las cuales
+son reglas que indican como transmitir los datos, el mas común es el protocolo
+TCP/IP, el cual indica como se transmiten los datos y la dirección que tiene que
+recibirla, estos se hace en 5 capas.
+
+![Protocolos](https://static.platzi.com/media/user_upload/clase10_intro-eeb6fdc9-e7d6-430b-ba77-cb77489ff71d.jpg)
+
+Los ISP son intermediarios que nos permite conectarnos a la infraestructura
+global del internet, utilizando los protocolos, ellos se encargan de mantener la
+infraestructura.
+
+![ISP](https://static.platzi.com/media/user_upload/clase12_intro-b403c174-a7c9-4317-b90f-db1124e91c07.jpg)
+
+Los servidores DNS, son servidores que mantienen indices donde relacionan una
+dirección IP con un string, el cual es el que utilizamos para conectarnos.
+
+![DNS](https://static.platzi.com/media/user_upload/clase12_1_intro-74973d25-0de4-4e82-9e36-8ae3a54ae200.jpg)
+
+## Como funciona el navegador
+
+| Metodo HTTP |       Descripción       |
+| :---------: | :---------------------: |
+|     GET     |     Solicita datos      |
+|    POST     |       Envía datos       |
+|     PUT     | Crea o reemplaza datos  |
+|   DELETE    | Borra datos específicos |
+
+Cuando nos conectamos a un sitio web, utilizamos una 'request HTTP', la cual nos
+regresa los datos que necesitamos para acceder al sitio web, después realiza
+algunas operaciones con estos datos, en un proceso llamado 'Critical Rendering Path'.
+
+![Critical Rendering PATH](https://static.platzi.com/media/user_upload/Untitled%20%2814%29-09c0334b-aa82-4a7f-8efb-494745e9649f.jpg)
+
+El DOM (Document Object Model), es un árbol que contiene los nodos o elementos
+que forman todo el contenido de nuestro documento HTML, gracias a esto, podemos
+generar interacción utilizando JavaScript o aplicar estilos utilizando CSS.
+
+![DOM](https://static.platzi.com/media/user_upload/introweb-slides_9be717ee-c262-4151-846b-e5248213b4fe-116-f29d92e3-2d70-4b1e-8d4d-951595c333b2.jpg)
+
+El CSSOM (CSS Object Model), es un árbol asociado a los elementos del DOM, el
+cual contiene todos los estilos que se deben aplicar al documento HTML.
+
+![CSSOM](https://static.platzi.com/media/user_upload/Screenshot%202020-11-11%20202236-94711fff-48b4-4632-8d4e-54e0fc3e32d4.jpg)
+
+Cuando el navegador procesa el sitio web, solicita al servidor por medio de HTTP
+la información, la cual posteriormente procesa, el navegador realiza estos pasos
+para procesar los archivos:
+
+1. Procesa el HTML y construye el DOM
+2. Procesa CSS y construye el CSSOM
+3. Junta el DOM y el CSSOM creando el Render Tree
+
+![Render TREE](https://static.platzi.com/media/user_upload/Screenshot%202020-11-18%20184035-354cf78d-d5ef-48eb-8c07-a034d133a1aa.jpg)
+
+
+Una vez el navegador tiene el Render Tree, posee a distribuir los elementos en el
+espacio de la pantalla, sin inyectar el contenido, usando lo que se conoce como
+el Layout.
+
+![Layout](https://static.platzi.com/media/user_upload/introweb-slides_9be717ee-c262-4151-846b-e5248213b4fe-122-8027d081-5587-4159-8b28-bfeec47e3dbc.jpg)
+
+Una vez que el navegador tiene el modelo de caja, aplica los contenidos y los
+estilos visuales, para posteriormente dibujarlos en pantalla.
+
+![Paint](https://static.platzi.com/media/user_upload/23-browser-diagram-full-2-5d34606a-c26f-438b-820a-6cf1b9fc339c.jpg)
+
+Una vez esta cargado el HTML y CSS, el motor de JavaScript ejecuta el código de
+nuestro proyecto, este motor evalúa el código y posteriormente crea el Abstract
+Syntax Tree, el cual contiene el algoritmo y lo ejecuta.
+
+![JavaScript](https://static.platzi.com/media/user_upload/introweb-slides_9be717ee-c262-4151-846b-e5248213b4fe-126-71216f37-2310-4112-b7df-0618a230a88f.jpg)
