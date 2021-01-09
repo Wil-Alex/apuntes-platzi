@@ -1,11 +1,8 @@
 # Curso de estrategias para aprender efectivamente
 
 - [Curso de estrategias para aprender efectivamente](#curso-de-estrategias-para-aprender-efectivamente)
-  - [Estilos de aprendizaje](#estilos-de-aprendizaje)
     - [Proceso de aprendizaje](#proceso-de-aprendizaje)
     - [Tipos de alumnos](#tipos-de-alumnos)
-
-## Estilos de aprendizaje
 
 ### Proceso de aprendizaje
 
