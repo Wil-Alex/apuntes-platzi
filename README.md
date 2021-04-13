@@ -11,12 +11,12 @@
 
 ## Frontend
 
-- [HTML y CSS](frontend-html-css/html-css-2020.md)
+- [HTML y CSS](/frontend-html-css/html-css-2020.md)
 - [Mobile First](/frontend-html-css/mobile-first-2020.md)
 - [CSS Grid Layout](/frontend-html-css/css-grid-layout.md)
 
 ---
 
-## Desarrollo Personal
+## JavaScript
 
-- [Estrategias para aprender](desarrollo-personal/aprender.md)
+- [Básico de JavaScript](/javascript/basico-javascript.md)
