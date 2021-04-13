@@ -936,12 +936,6 @@ Para calcular el interlineado usamos la siguiente regla:
 
 ## Display
 
-- [Display](#display)
-  - [Basico](#basico)
-  - [Display flex](#display-flex)
-  - [Responsive Web Design](#responsive-web-design)
-  - [Imagenes responsive](#imagenes-responsive)
-
 ### Basico
 
 Dentro de CSS existen los display, los cuales son las maneras en las que los
