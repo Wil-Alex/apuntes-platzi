@@ -4,6 +4,7 @@
   - [Definiciones](#definiciones)
   - [HTML Y CSS](#html-y-css)
   - [DOM, CSSOM y Render Tree](#dom-cssom-y-render-tree)
+  - [Anatomía básica de HTML](#anatomía-básica-de-html)
 
 ## Definiciones
 
@@ -71,3 +72,47 @@ en el árbol de renderizado (Render Tree).
 ![CSSOM](https://static.platzi.com/media/user_upload/frontend-developer-slides-comprimido_a4a7a8c9-301f-49e8-b6f9-90928ea798e3-10-29925f2d-2468-4092-9fca-57af22964d07.jpg)
 
 ![Proceso](https://static.platzi.com/media/user_upload/frontend-developer-slides-comprimido_a4a7a8c9-301f-49e8-b6f9-90928ea798e3-11-9645a1c8-9b55-4c6a-8f9d-78a534a7d12a.jpg)
+
+## Anatomía básica de HTML
+
+Todos los elementos en HTML están conformados por etiquetas de apertura y de
+cierre, siendo una etiqueta de apertura algo como: `<h1>` y una de cierre seria
+similar a esto: `</h1>`, encerrado dentro de las etiquetas podemos encontrar el
+contenido HTML, conformando juntos un elemento HTML.
+
+Las etiquetas HTML permiten que les indiquemos ciertos parámetros adicionales,
+llamados atributos, estos se indican en las etiquetas de apertura, de esta forma:
+`<h1 class="saludo">`, cada atributo es un par clave-valor aunque también existen
+ciertos atributos conformados unicamente por una clave sin ningún valor asignado.
+
+Es posible anidar elementos es decir indicar etiquetas dentro del contenido de
+otras, la única regla es que debe cerrarse antes de cerrar la etiqueta padre,
+también existen los elementos vacíos, los cuales nos permite agregar elementos
+que no poseen contenido alguno, por ejemplo: `<img src="puppy.png" alt="Mi perro" />`
+esta etiqueta de imagen no tiene ninguna clase de contenido, por lo que se cierra
+en la misma etiqueta de apertura, unicamente contiene los atributos necesarios en
+este caso unicamente el atributo `src` el cual indica la url donde se encuentra
+alojada la imagen y el atributo `alt` es el texto que aparecerá en caso de que la
+imagen falle al cargar.
+
+```html
+<!DOCTYPE html> <!-- Indica que estamos en HTML5 -->
+<html lang="es"> <!-- root o raíz del documento -->
+<head> <!-- No tiene implicaciones visuales -->
+  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title> <!-- Titulo del documento, texto de la pestaña -->
+</head>
+<body> <!-- Contenido del documento -->
+<h1>Titulo del documento</h1>
+<div>
+  <p>Párrafo del documento</p>
+</div>
+</body>
+</html>
+```
+
+Todos los elementos en HTML son cajas, y cada elemento tiene una función
+semántica asignada, por ejemplo `<p>` indica párrafo, y la etiqueta `<div>` sirve
+para contener otros elementos HTML.
